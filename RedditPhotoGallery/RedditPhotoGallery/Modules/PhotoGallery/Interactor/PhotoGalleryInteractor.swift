@@ -21,7 +21,7 @@ class PhotoGalleryInteractor {
     
     // MARK: Public members
     
-    public func getPhotoGallery(query: String, completionHandler:@escaping (_ data: [ChildrenData], _ error: Bool) -> ()) {
+    public func getPhotoGallery(query: String, completionHandler:@escaping (_ data: [ChildrenData]) -> ()) {
         let escapedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         
         if let strongEscapedQuery = escapedQuery,
@@ -64,14 +64,12 @@ class PhotoGalleryInteractor {
     
     // MARK: Private members
     
-    private func handleGetPhotoGalleryResult(data: RedditPhotoGalleryResponse?, completionHandler: (_ data: [ChildrenData], _ error: Bool) -> ()) {
-        var error: Bool = true
+    private func handleGetPhotoGalleryResult(data: RedditPhotoGalleryResponse?, completionHandler: (_ data: [ChildrenData]) -> ()) {
         var result: [ChildrenData] = []
         if let childrens = data?.data?.children {
-            error = false
             result = childrens
         }
-        completionHandler(result, error)
+        completionHandler(result)
     }
     
 }

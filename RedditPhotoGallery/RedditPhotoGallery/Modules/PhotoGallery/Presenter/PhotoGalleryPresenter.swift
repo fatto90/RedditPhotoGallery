@@ -57,14 +57,10 @@ class PhotoGalleryPresenter {
     
     private func getPhotoGalleryData(query: String) {
         // fetch data from interactor
-        self.interactor.getPhotoGallery(query: query) {[weak self] childrens, error in
+        self.interactor.getPhotoGallery(query: query) {[weak self] childrens in
             // generate viewModel from data result, empty if something went wrong
             let viewModel = self?.getPhotoGalleryViewModel(query: query, childrens: childrens)
             DispatchQueue.main.async {
-                if error {
-                    //notify user that something went wrong
-                    self?.view?.renderError()
-                }
                 // Update gallery
                 if let strongViewModel = viewModel {
                     self?.view?.renderViewModel(viewModel: strongViewModel)

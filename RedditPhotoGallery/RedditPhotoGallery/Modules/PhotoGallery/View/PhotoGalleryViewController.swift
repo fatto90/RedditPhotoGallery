@@ -50,9 +50,6 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
         self.photoGalleryCollectionView.reloadData()
     }
     
-    public func renderError() {
-    }
-    
     //MARK: Private members
     
     private func setExtraInfo(shouldShow: Bool) {
