@@ -7,11 +7,14 @@
 
 import UIKit
 
-class PhotoGalleryViewController: UIViewController {
-
-    @IBOutlet weak var titleLabel: UILabel!
+class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var presenter : PhotoGalleryPresenter?
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var photoGalleryCollectionView: UICollectionView!
+    @IBOutlet weak var photoGalleryCollectionViewFlowLayout: UICollectionViewFlowLayout!
+    
+    private var presenter: PhotoGalleryPresenter?
+    private var viewModel: PhotoGalleryViewModel?
     
     init(presenter: PhotoGalleryPresenter?) {
         super.init(nibName: "PhotoGalleryViewController", bundle: nil)
@@ -24,16 +27,54 @@ class PhotoGalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.titleLabel.text = "Photo Gallery"
+        self.photoGalleryCollectionView.register(UINib(nibName: PhotoGalleryCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PhotoGalleryCollectionViewCell.identifier)
     }
 
     //MARK: Public members
     
     public func renderViewModel(viewModel: PhotoGalleryViewModel) {
+        self.viewModel = viewModel
+        self.photoGalleryCollectionView.reloadData()
     }
     
     public func renderError() {
     }
 
+    //MARK: SearchBar delegate members
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.presenter?.refreshPhotoGallery(query: searchText)
+    }
+    
+    //MARK: CollectionView data source members
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.viewModel?.images?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoGalleryCollectionViewCell.identifier, for: indexPath) as! PhotoGalleryCollectionViewCell
+        
+        let cellViewModel = self.viewModel?.images?[indexPath.row]
+        
+        cell.presenter = presenter
+        cell.renderViewModel(viewModel: cellViewModel)
+        
+        return cell
+    }
+    
+    //MARK: CollectionView delegate members
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cellViewModel = self.viewModel?.images?[indexPath.row]
+
+    }
+    
+    //MARK: CollectionView flow layout delegate members
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.size.width / 2, height: UIScreen.main.bounds.size.width / 2)
+    }
 }
 

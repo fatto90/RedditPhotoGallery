@@ -9,9 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodoListViewController" customModule="RedditPhotoGallery" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoGalleryViewController" customModule="RedditPhotoGallery" customModuleProvider="target">
             <connections>
-                <outlet property="titleLabel" destination="Xkp-FL-0r1" id="mH1-tw-Eec"/>
+                <outlet property="photoGalleryCollectionView" destination="gDZ-ud-ZUY" id="eF0-OQ-QNi"/>
+                <outlet property="photoGalleryCollectionViewFlowLayout" destination="pgm-3M-cQj" id="uG5-pf-Kz7"/>
+                <outlet property="searchBar" destination="vSZ-6M-s3H" id="deu-8p-IS9"/>
                 <outlet property="view" destination="X1P-yo-TLM" id="cY7-TP-CIL"/>
             </connections>
         </placeholder>
@@ -20,19 +22,38 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkp-FL-0r1" userLabel="TitleLabel">
-                    <rect key="frame" x="20" y="74" width="374" height="48"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="40"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vSZ-6M-s3H" userLabel="SearchBar">
+                    <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="FXo-5f-9Zf"/>
+                    </connections>
+                </searchBar>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gDZ-ud-ZUY" userLabel="PhotoGalleryCollectionView">
+                    <rect key="frame" x="0.0" y="95" width="414" height="767"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pgm-3M-cQj" userLabel="PhotoGalleryCollectionViewFlowLayout">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="5uv-uN-RCd"/>
+                        <outlet property="delegate" destination="-1" id="5iI-Lz-Iaa"/>
+                    </connections>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="FCW-jV-Jsj"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="FCW-jV-Jsj" firstAttribute="trailing" secondItem="Xkp-FL-0r1" secondAttribute="trailing" constant="20" id="Kgy-qx-ifC"/>
-                <constraint firstItem="Xkp-FL-0r1" firstAttribute="top" secondItem="FCW-jV-Jsj" secondAttribute="top" constant="30" id="fLT-gX-x6o"/>
-                <constraint firstItem="Xkp-FL-0r1" firstAttribute="leading" secondItem="FCW-jV-Jsj" secondAttribute="leading" constant="20" id="ri9-1q-ArY"/>
+                <constraint firstItem="gDZ-ud-ZUY" firstAttribute="leading" secondItem="FCW-jV-Jsj" secondAttribute="leading" id="0fj-8r-mOY"/>
+                <constraint firstItem="FCW-jV-Jsj" firstAttribute="trailing" secondItem="gDZ-ud-ZUY" secondAttribute="trailing" id="Bdf-dd-uGB"/>
+                <constraint firstItem="gDZ-ud-ZUY" firstAttribute="top" secondItem="vSZ-6M-s3H" secondAttribute="bottom" id="EiS-qB-FIx"/>
+                <constraint firstItem="vSZ-6M-s3H" firstAttribute="leading" secondItem="FCW-jV-Jsj" secondAttribute="leading" id="YXC-Z6-aW9"/>
+                <constraint firstItem="FCW-jV-Jsj" firstAttribute="trailing" secondItem="vSZ-6M-s3H" secondAttribute="trailing" id="fJH-ff-tXi"/>
+                <constraint firstItem="vSZ-6M-s3H" firstAttribute="top" secondItem="FCW-jV-Jsj" secondAttribute="top" id="mAf-kP-57F"/>
+                <constraint firstItem="FCW-jV-Jsj" firstAttribute="bottom" secondItem="gDZ-ud-ZUY" secondAttribute="bottom" id="ma4-tZ-uDS"/>
             </constraints>
             <point key="canvasLocation" x="-444" y="102"/>
         </view>
