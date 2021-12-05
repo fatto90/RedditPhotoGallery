@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoGalleryViewController" customModule="RedditPhotoGallery" customModuleProvider="target">
             <connections>
                 <outlet property="photoGalleryCollectionView" destination="gDZ-ud-ZUY" id="eF0-OQ-QNi"/>
-                <outlet property="photoGalleryCollectionViewFlowLayout" destination="pgm-3M-cQj" id="uG5-pf-Kz7"/>
                 <outlet property="searchBar" destination="vSZ-6M-s3H" id="deu-8p-IS9"/>
                 <outlet property="view" destination="X1P-yo-TLM" id="cY7-TP-CIL"/>
             </connections>

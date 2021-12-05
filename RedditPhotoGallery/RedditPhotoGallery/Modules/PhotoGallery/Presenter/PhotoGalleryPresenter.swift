@@ -33,10 +33,24 @@ class PhotoGalleryPresenter {
         self.currentDataFetchWorkItem = DispatchWorkItem(block: {
             self.getPhotoGalleryData(query: query)
         })
-        
         // launch the search request in a background thread
         DispatchQueue.global().async(execute: self.currentDataFetchWorkItem!)
         
+    }
+    
+    public func getPhotoImage(url: String?, completion:@escaping (_ data: Foundation.Data?, _ url: String?) -> ()) {
+        if let strongUrl = url {
+            // fetch the image data in a background thread
+            DispatchQueue.global().async {
+                self.interactor.getPhotoData(url: strongUrl) { data in
+                    DispatchQueue.main.async {
+                        completion(data, url)
+                    }
+                }
+            }
+        } else {
+            completion(nil, url)
+        }
     }
     
     // MARK: Private members
@@ -66,7 +80,7 @@ class PhotoGalleryPresenter {
         for children in childrens {
             let imageViewModel = PhotoImageViewModel()
             imageViewModel.title = children.data?.title
-            imageViewModel.imageUrl = children.data?.header_img
+            imageViewModel.imageUrl = self.tryGetImageUrlFrom(children: children)
             imageViewModel.htmlDescription = children.data?.description_html
             imageViewModels.append(imageViewModel)
         }
@@ -74,6 +88,19 @@ class PhotoGalleryPresenter {
         viewModel.images = imageViewModels
         
         return viewModel
+    }
+    
+    private func tryGetImageUrlFrom(children: ChildrenData?) -> String? {
+        // check if the post is "image" itself
+        if children?.data?.post_hint == "image", let imageUrl = children?.data?.url {
+            return imageUrl
+        }
+        // try get the post thumbnail
+        if let thubnailUrl = children?.data?.thumbnail {
+            return thubnailUrl
+        }
+        // header image otherwise..
+        return children?.data?.header_img
     }
     
 }

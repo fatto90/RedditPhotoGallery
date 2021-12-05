@@ -11,7 +11,6 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var photoGalleryCollectionView: UICollectionView!
-    @IBOutlet weak var photoGalleryCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
     private var presenter: PhotoGalleryPresenter?
     private var viewModel: PhotoGalleryViewModel?
@@ -74,7 +73,8 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     //MARK: CollectionView flow layout delegate members
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.size.width / 2, height: UIScreen.main.bounds.size.width / 2)
+        let side = UIScreen.main.bounds.size.width / 2
+        return CGSize(width: side, height: side)
     }
 }
 

@@ -44,6 +44,22 @@ class PhotoGalleryInteractor {
         }
     }
     
+    public func getPhotoData(url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
+        if let url = URL(string: url) {
+            let task = session.dataTask(with: url) { data, response, error in
+                // check if response is an image
+                if let mimeType = response?.mimeType, mimeType.hasPrefix("image"), let data = data {
+                    completionHandler(data)
+                } else {
+                    completionHandler(nil)
+                }
+            }
+            task.resume()
+        } else {
+            completionHandler(nil)
+        }
+    }
+    
     // MARK: Private members
     
     private func handleGetPhotoGalleryResult(data: RedditPhotoGalleryResponse?, completionHandler: (_ data: [ChildrenData], _ error: Bool) -> ()) {
