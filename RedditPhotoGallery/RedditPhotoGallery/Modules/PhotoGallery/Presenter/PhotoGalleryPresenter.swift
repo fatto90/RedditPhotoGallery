@@ -59,7 +59,7 @@ class PhotoGalleryPresenter {
         // fetch data from interactor
         self.interactor.getPhotoGallery(query: query) {[weak self] childrens, error in
             // generate viewModel from data result, empty if something went wrong
-            let viewModel = self?.getPhotoGalleryViewModel(childrens: childrens)
+            let viewModel = self?.getPhotoGalleryViewModel(query: query, childrens: childrens)
             DispatchQueue.main.async {
                 if error {
                     //notify user that something went wrong
@@ -73,34 +73,48 @@ class PhotoGalleryPresenter {
         }
     }
     
-    private func getPhotoGalleryViewModel(childrens: [ChildrenData]) -> PhotoGalleryViewModel {
+    private func getPhotoGalleryViewModel(query: String, childrens: [ChildrenData]) -> PhotoGalleryViewModel {
         let viewModel = PhotoGalleryViewModel()
         
         var imageViewModels = [PhotoImageViewModel]()
         for children in childrens {
-            let imageViewModel = PhotoImageViewModel()
-            imageViewModel.title = children.data?.title
-            imageViewModel.imageUrl = self.tryGetImageUrlFrom(children: children)
-            imageViewModel.htmlDescription = children.data?.description_html
-            imageViewModels.append(imageViewModel)
+            // check if reddit post is an image
+            if children.data?.post_hint == "image" {
+                let imageViewModel = PhotoImageViewModel()
+                imageViewModel.title = children.data?.title
+                imageViewModel.imageUrl = children.data?.url
+                imageViewModel.thumbnailUrl = children.data?.thumbnail
+                imageViewModel.htmlDescription = children.data?.description_html
+                imageViewModels.append(imageViewModel)
+            }
         }
+        viewModel.showExtraInfo = query.isEmpty || imageViewModels.isEmpty
+        viewModel.extraInfoText = self.getExtraInfoTextFor(query: query, imageViewModels: imageViewModels)
+        viewModel.extraInfoIcon = self.getExtraInfoIconFor(query: query, imageViewModels: imageViewModels)
         
         viewModel.images = imageViewModels
         
         return viewModel
     }
     
-    private func tryGetImageUrlFrom(children: ChildrenData?) -> String? {
-        // check if the post is "image" itself
-        if children?.data?.post_hint == "image", let imageUrl = children?.data?.url {
-            return imageUrl
+    private func getExtraInfoTextFor(query: String, imageViewModels: [PhotoImageViewModel]) -> String? {
+        if query.isEmpty {
+            return "Please write something..."
         }
-        // try get the post thumbnail
-        if let thubnailUrl = children?.data?.thumbnail {
-            return thubnailUrl
+        if imageViewModels.isEmpty {
+            return "No Result Found"
         }
-        // header image otherwise..
-        return children?.data?.header_img
+        return nil
+    }
+    
+    private func getExtraInfoIconFor(query: String, imageViewModels: [PhotoImageViewModel]) -> UIImage? {
+        if query.isEmpty {
+            return UIImage(systemName: "hand.point.up.left.fill")
+        }
+        if imageViewModels.isEmpty {
+            return UIImage(systemName: "eyes")
+        }
+        return nil
     }
     
 }

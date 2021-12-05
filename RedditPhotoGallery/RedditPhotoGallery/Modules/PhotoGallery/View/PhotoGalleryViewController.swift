@@ -11,6 +11,9 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var photoGalleryCollectionView: UICollectionView!
+    @IBOutlet weak var extraInfoView: UIView!
+    @IBOutlet weak var extraInfoImageView: UIImageView!
+    @IBOutlet weak var extraInfoLabel: UILabel!
     
     private var presenter: PhotoGalleryPresenter?
     private var viewModel: PhotoGalleryViewModel?
@@ -27,16 +30,35 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.photoGalleryCollectionView.register(UINib(nibName: PhotoGalleryCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PhotoGalleryCollectionViewCell.identifier)
+        self.presenter?.refreshPhotoGallery(query: "")
+        // Hide extra info section
+        self.setExtraInfo(shouldShow: false)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.photoGalleryCollectionView.reloadData()
     }
 
     //MARK: Public members
     
     public func renderViewModel(viewModel: PhotoGalleryViewModel) {
         self.viewModel = viewModel
+        let showExtraInfo = self.viewModel?.showExtraInfo ?? false
+        self.setExtraInfo(shouldShow: showExtraInfo)
+        self.extraInfoLabel.text = self.viewModel?.extraInfoText
+        self.extraInfoImageView.image = self.viewModel?.extraInfoIcon
         self.photoGalleryCollectionView.reloadData()
     }
     
     public func renderError() {
+    }
+    
+    //MARK: Private members
+    
+    private func setExtraInfo(shouldShow: Bool) {
+        self.extraInfoView.isHidden = !shouldShow
+        self.extraInfoImageView.isHidden = !shouldShow
+        self.extraInfoLabel.isHidden = !shouldShow
     }
 
     //MARK: SearchBar delegate members
@@ -73,7 +95,7 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     //MARK: CollectionView flow layout delegate members
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let side = UIScreen.main.bounds.size.width / 2
+        let side = self.photoGalleryCollectionView.bounds.size.width / 3
         return CGSize(width: side, height: side)
     }
 }

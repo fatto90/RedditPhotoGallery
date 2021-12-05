@@ -22,8 +22,10 @@ class PhotoGalleryInteractor {
     // MARK: Public members
     
     public func getPhotoGallery(query: String, completionHandler:@escaping (_ data: [ChildrenData], _ error: Bool) -> ()) {
+        let escapedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         
-        if let url = URL(string: self.urlString.replacingOccurrences(of: self.queryPlaceholder, with: query)) {
+        if let strongEscapedQuery = escapedQuery,
+            let url = URL(string: self.urlString.replacingOccurrences(of: self.queryPlaceholder, with: strongEscapedQuery)) {
             let task = session.dataTask(with: url) {[weak self] data, response, error in
                 if let data = data {
                     let jsonDecoder = JSONDecoder()

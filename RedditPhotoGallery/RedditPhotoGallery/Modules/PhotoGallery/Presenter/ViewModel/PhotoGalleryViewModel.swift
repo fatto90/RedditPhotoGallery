@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 class PhotoGalleryViewModel {
     
     var images: [PhotoImageViewModel]?
+    var extraInfoText: String?
+    var extraInfoIcon: UIImage?
+    var showExtraInfo: Bool?
     
 }

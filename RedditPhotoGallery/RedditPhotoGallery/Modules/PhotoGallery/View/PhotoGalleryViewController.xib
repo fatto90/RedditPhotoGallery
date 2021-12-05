@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoGalleryViewController" customModule="RedditPhotoGallery" customModuleProvider="target">
             <connections>
+                <outlet property="extraInfoImageView" destination="7hp-Bf-EJi" id="Cxg-Sb-tdd"/>
+                <outlet property="extraInfoLabel" destination="0BW-N1-NVt" id="6Yk-X4-rEz"/>
+                <outlet property="extraInfoView" destination="x8y-A8-xWc" id="XNQ-tT-t5I"/>
                 <outlet property="photoGalleryCollectionView" destination="gDZ-ud-ZUY" id="eF0-OQ-QNi"/>
                 <outlet property="searchBar" destination="vSZ-6M-s3H" id="deu-8p-IS9"/>
                 <outlet property="view" destination="X1P-yo-TLM" id="cY7-TP-CIL"/>
@@ -21,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vSZ-6M-s3H" userLabel="SearchBar">
+                <searchBar contentMode="redraw" placeholder="Search images..." translatesAutoresizingMaskIntoConstraints="NO" id="vSZ-6M-s3H" userLabel="SearchBar">
                     <rect key="frame" x="0.0" y="44" width="414" height="51"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -42,22 +45,54 @@
                         <outlet property="delegate" destination="-1" id="5iI-Lz-Iaa"/>
                     </connections>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8y-A8-xWc" userLabel="ExtraInfoView">
+                    <rect key="frame" x="20" y="433" width="374" height="91.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eyes" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7hp-Bf-EJi" userLabel="ExtraInfoImageView">
+                            <rect key="frame" x="162" y="1" width="50" height="47.5"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="7hp-Bf-EJi" secondAttribute="height" multiplier="1:1" id="5gA-48-prG"/>
+                                <constraint firstAttribute="width" constant="50" id="ZNt-To-Fsh"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0BW-N1-NVt" userLabel="ExtraInfoLabel">
+                            <rect key="frame" x="0.0" y="70" width="374" height="21.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="7hp-Bf-EJi" firstAttribute="top" secondItem="x8y-A8-xWc" secondAttribute="top" id="3uy-Xk-rkL"/>
+                        <constraint firstAttribute="bottom" secondItem="0BW-N1-NVt" secondAttribute="bottom" id="FSq-aL-jna"/>
+                        <constraint firstItem="0BW-N1-NVt" firstAttribute="top" secondItem="7hp-Bf-EJi" secondAttribute="bottom" constant="20" id="GTm-SX-9qY"/>
+                        <constraint firstItem="0BW-N1-NVt" firstAttribute="leading" secondItem="x8y-A8-xWc" secondAttribute="leading" id="SQd-vQ-k8P"/>
+                        <constraint firstItem="7hp-Bf-EJi" firstAttribute="centerX" secondItem="x8y-A8-xWc" secondAttribute="centerX" id="fuV-iy-Dsm"/>
+                        <constraint firstAttribute="trailing" secondItem="0BW-N1-NVt" secondAttribute="trailing" id="xMW-jg-0HU"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="FCW-jV-Jsj"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="gDZ-ud-ZUY" firstAttribute="leading" secondItem="FCW-jV-Jsj" secondAttribute="leading" id="0fj-8r-mOY"/>
+                <constraint firstItem="x8y-A8-xWc" firstAttribute="leading" secondItem="gDZ-ud-ZUY" secondAttribute="leading" constant="20" id="5di-Iu-ajd"/>
                 <constraint firstItem="FCW-jV-Jsj" firstAttribute="trailing" secondItem="gDZ-ud-ZUY" secondAttribute="trailing" id="Bdf-dd-uGB"/>
                 <constraint firstItem="gDZ-ud-ZUY" firstAttribute="top" secondItem="vSZ-6M-s3H" secondAttribute="bottom" id="EiS-qB-FIx"/>
+                <constraint firstItem="x8y-A8-xWc" firstAttribute="centerY" secondItem="gDZ-ud-ZUY" secondAttribute="centerY" id="PEm-wg-ecX"/>
                 <constraint firstItem="vSZ-6M-s3H" firstAttribute="leading" secondItem="FCW-jV-Jsj" secondAttribute="leading" id="YXC-Z6-aW9"/>
+                <constraint firstItem="gDZ-ud-ZUY" firstAttribute="trailing" secondItem="x8y-A8-xWc" secondAttribute="trailing" constant="20" id="act-J3-AaA"/>
                 <constraint firstItem="FCW-jV-Jsj" firstAttribute="trailing" secondItem="vSZ-6M-s3H" secondAttribute="trailing" id="fJH-ff-tXi"/>
                 <constraint firstItem="vSZ-6M-s3H" firstAttribute="top" secondItem="FCW-jV-Jsj" secondAttribute="top" id="mAf-kP-57F"/>
                 <constraint firstItem="FCW-jV-Jsj" firstAttribute="bottom" secondItem="gDZ-ud-ZUY" secondAttribute="bottom" id="ma4-tZ-uDS"/>
             </constraints>
-            <point key="canvasLocation" x="-444" y="102"/>
+            <point key="canvasLocation" x="-444.92753623188412" y="101.78571428571428"/>
         </view>
     </objects>
     <resources>
+        <image name="eyes" catalog="system" width="128" height="99"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

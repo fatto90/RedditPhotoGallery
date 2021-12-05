@@ -34,10 +34,10 @@ class PhotoGalleryCollectionViewCell: UICollectionViewCell {
         self.activityIndicator.isHidden = false
         
         // fetch image data
-        self.presenter?.getPhotoImage(url: self.viewModel?.imageUrl, completion: {[weak self] data, url in
+        self.presenter?.getPhotoImage(url: self.viewModel?.thumbnailUrl, completion: {[weak self] data, url in
             
             // This check is useful to avoid concurrency data overrides in cases where the Cell has been reused
-            if self?.viewModel?.imageUrl == url {
+            if self?.viewModel?.thumbnailUrl == url {
                 // hide the loading view and handle received data
                 self?.activityIndicator.stopAnimating()
                 self?.activityIndicator.isHidden = true
