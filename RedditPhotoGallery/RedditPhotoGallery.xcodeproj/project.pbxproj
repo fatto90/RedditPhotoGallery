@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95141C91275CB121007D3C38 /* RedditPhotoGalleryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95141C90275CB121007D3C38 /* RedditPhotoGalleryResponse.swift */; };
 		959930EC275BF50E006A746F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959930EB275BF50E006A746F /* AppDelegate.swift */; };
 		959930F5275BF50E006A746F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959930F4275BF50E006A746F /* Assets.xcassets */; };
 		959930F8275BF50E006A746F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959930F6275BF50E006A746F /* LaunchScreen.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95141C90275CB121007D3C38 /* RedditPhotoGalleryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPhotoGalleryResponse.swift; sourceTree = "<group>"; };
 		959930E8275BF50E006A746F /* RedditPhotoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditPhotoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959930EB275BF50E006A746F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959930F4275BF50E006A746F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95141C92275CB50F007D3C38 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				95141C90275CB121007D3C38 /* RedditPhotoGalleryResponse.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		959930DF275BF50E006A746F = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 		9599312B275BFE68006A746F /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				95141C92275CB50F007D3C38 /* DataModel */,
 				9599312C275BFE68006A746F /* PhotoGalleryInteractor.swift */,
 			);
 			path = Interactor;
@@ -342,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95141C91275CB121007D3C38 /* RedditPhotoGalleryResponse.swift in Sources */,
 				9599312F275BFE68006A746F /* PhotoGalleryPresenter.swift in Sources */,
 				959930EC275BF50E006A746F /* AppDelegate.swift in Sources */,
 				95993123275BFE57006A746F /* Container.swift in Sources */,
