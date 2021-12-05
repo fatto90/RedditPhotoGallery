@@ -27,6 +27,13 @@ class PhotoGalleryViewController: UIViewController {
         self.titleLabel.text = "Photo Gallery"
     }
 
+    //MARK: Public members
+    
+    public func renderViewModel(viewModel: PhotoGalleryViewModel) {
+    }
+    
+    public func renderError() {
+    }
 
 }
 

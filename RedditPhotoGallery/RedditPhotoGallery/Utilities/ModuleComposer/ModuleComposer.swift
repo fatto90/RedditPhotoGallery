@@ -27,8 +27,8 @@ class ModuleComposer {
         let router = PhotoGalleryRouter()
         let presenter = PhotoGalleryPresenter.init(router: router, interactor: interactor)
         let photoGallery = PhotoGalleryViewController.init(presenter: presenter)
-        router.view = self.photoGallery
-        presenter.view = self.photoGallery
+        router.view = photoGallery
+        presenter.view = photoGallery
         return photoGallery
     }
 }
