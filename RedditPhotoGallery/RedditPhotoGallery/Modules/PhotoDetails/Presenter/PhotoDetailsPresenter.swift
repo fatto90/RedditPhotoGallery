@@ -17,6 +17,8 @@ class PhotoDetailsPresenter {
     
     weak var view: PhotoDetailsViewController?
     
+    private var isPresented = false
+    
     init(router: PhotoDetailsRouter, interactor: PhotoDetailsInteractor) {
         self.interactor = interactor
         self.router = router
@@ -40,11 +42,19 @@ class PhotoDetailsPresenter {
     }
     
     public func goBack() {
+        self.isPresented = false
         self.router.dismissModule()
     }
     
     public func update(startIndex: Int) {
         self.startIndex = startIndex
+    }
+    
+    public func refreshOneTimePhotoDetails() {
+        if !self.isPresented {
+            self.isPresented = true
+            self.refreshPhotoDetails()
+        }
     }
     
     public func refreshPhotoDetails() {

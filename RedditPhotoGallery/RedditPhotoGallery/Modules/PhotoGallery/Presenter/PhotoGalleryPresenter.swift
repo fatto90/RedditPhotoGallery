@@ -86,7 +86,7 @@ class PhotoGalleryPresenter {
                 imageViewModel.title = children.data?.title
                 imageViewModel.imageUrl = children.data?.url
                 imageViewModel.thumbnailUrl = children.data?.thumbnail
-                imageViewModel.htmlDescription = children.data?.description_html
+                imageViewModel.author = children.data?.author_fullname
                 imageViewModels.append(imageViewModel)
             }
         }

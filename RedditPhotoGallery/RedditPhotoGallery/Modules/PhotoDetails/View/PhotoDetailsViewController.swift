@@ -27,12 +27,17 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter?.refreshPhotoDetails()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.presenter?.refreshOneTimePhotoDetails()
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
@@ -70,12 +75,13 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
             let photoDetailsView = UINib(nibName: "PhotoDetailsView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PhotoDetailsView
             // provide position and frame to it
             let position = CGFloat(index) * UIScreen.main.bounds.width
-            photoDetailsView.frame = CGRect(x: position, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+            photoDetailsView.frame = CGRect(x: position, y: 0, width: UIScreen.main.bounds.width, height: SafeAreaHeight.shared.getSafeAreaHeight())
             
             self.photoDetailsScrollContentView?.addSubview(photoDetailsView)
             
             // tell her what to render
             photoDetailsView.presenter = self.presenter
+            photoDetailsView.setImageScrollViewDelegate(delegate: self)
             photoDetailsView.renderViewModel(viewModel: imageViewModel)
             
             self.photoDetailsViews?.append(photoDetailsView)
@@ -109,12 +115,21 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     //MARK: ScrollView delegate member
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.stoppedScrolling()
+        if scrollView == self.photoDetailsScrollView {
+            self.stoppedScrolling()
+        }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
+        if scrollView == self.photoDetailsScrollView && !decelerate {
             self.stoppedScrolling()
         }
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        if scrollView != self.photoDetailsScrollView {
+            return self.photoDetailsViews?[self.currentPage].imageView
+        }
+        return nil
     }
 }

@@ -13,6 +13,6 @@ class PhotoImageViewModel {
     var thumbnailUrl: String?
     var imageUrl: String?
     var title: String?
-    var htmlDescription: String?
+    var author: String?
     
 }

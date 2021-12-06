@@ -23,11 +23,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-ry-hue" userLabel="PhotoDetailsScrollView">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-ry-hue" userLabel="PhotoDetailsScrollView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-3u-RSu" userLabel="PhotoDetailsScrollContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="704" height="818"/>
+                        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-3u-RSu" userLabel="PhotoDetailsScrollContentView">
+                            <rect key="frame" x="0.0" y="0.0" width="704" height="852"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="704" id="RWG-fw-egJ" userLabel="PhotoDetailsScrollContentViewWidthConstraint"/>
@@ -41,8 +41,6 @@
                         <constraint firstItem="PIB-3u-RSu" firstAttribute="height" secondItem="UZh-ry-hue" secondAttribute="height" id="l65-0k-7IM"/>
                         <constraint firstItem="PIB-3u-RSu" firstAttribute="top" secondItem="UZh-ry-hue" secondAttribute="top" id="z92-Wh-U0C"/>
                     </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="Ndg-fC-PV0"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="Lbg-YB-s4o"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="iyV-vC-4dQ"/>
                     </connections>
@@ -73,7 +71,7 @@
             <constraints>
                 <constraint firstItem="Zto-KH-jJJ" firstAttribute="trailing" secondItem="UZh-ry-hue" secondAttribute="trailing" id="DLM-VN-90r"/>
                 <constraint firstItem="UZh-ry-hue" firstAttribute="top" secondItem="Zto-KH-jJJ" secondAttribute="top" id="F0E-jf-n6G"/>
-                <constraint firstItem="Zto-KH-jJJ" firstAttribute="bottom" secondItem="UZh-ry-hue" secondAttribute="bottom" id="WQY-71-YQZ"/>
+                <constraint firstAttribute="bottom" secondItem="UZh-ry-hue" secondAttribute="bottom" id="WQY-71-YQZ"/>
                 <constraint firstItem="FHm-Po-Q9E" firstAttribute="leading" secondItem="Zto-KH-jJJ" secondAttribute="leading" id="co8-Pb-B7d"/>
                 <constraint firstItem="UZh-ry-hue" firstAttribute="leading" secondItem="Zto-KH-jJJ" secondAttribute="leading" id="ik8-Jc-mRQ"/>
                 <constraint firstItem="usG-j8-U69" firstAttribute="centerX" secondItem="FHm-Po-Q9E" secondAttribute="centerX" id="niQ-P6-x8I"/>

@@ -4,52 +4,86 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" userLabel="PhotoDetailsView" customClass="PhotoDetailsView" customModule="RedditPhotoGallery" customModuleProvider="target">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" userLabel="PhotoDetailsView" customClass="PhotoDetailsView" customModule="RedditPhotoGallery" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vf4-2V-CHs" userLabel="ImageView">
-                    <rect key="frame" x="0.0" y="44" width="240" height="818"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="wEW-ta-2xE" userLabel="ImageScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="896"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vf4-2V-CHs" userLabel="ImageView">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="818"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="300" id="pK8-ld-kMo" userLabel="ImageViewWidthConstraint"/>
+                                <constraint firstAttribute="height" constant="818" id="wex-pm-B2b" userLabel="ImageViewHeightConstraint"/>
+                            </constraints>
+                        </imageView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="h5t-QW-vDZ" userLabel="ActivityIndicator">
+                            <rect key="frame" x="131.5" y="390.5" width="37" height="37"/>
+                        </activityIndicatorView>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" constant="240" id="pK8-ld-kMo" userLabel="ImageViewWidthConstraint"/>
+                        <constraint firstItem="h5t-QW-vDZ" firstAttribute="centerX" secondItem="Vf4-2V-CHs" secondAttribute="centerX" id="01E-dC-eTJ"/>
+                        <constraint firstItem="h5t-QW-vDZ" firstAttribute="centerY" secondItem="Vf4-2V-CHs" secondAttribute="centerY" id="19p-KL-b3e"/>
+                        <constraint firstItem="Vf4-2V-CHs" firstAttribute="top" secondItem="wEW-ta-2xE" secondAttribute="top" id="Mbs-ax-Npe"/>
+                        <constraint firstItem="Vf4-2V-CHs" firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" id="WJQ-h9-6FQ"/>
+                        <constraint firstAttribute="trailing" secondItem="Vf4-2V-CHs" secondAttribute="trailing" id="m04-Iq-Tt0"/>
+                        <constraint firstAttribute="bottom" secondItem="Vf4-2V-CHs" secondAttribute="bottom" constant="20" symbolic="YES" id="vjr-Ew-4oy"/>
+                        <constraint firstItem="Vf4-2V-CHs" firstAttribute="width" secondItem="wEW-ta-2xE" secondAttribute="width" id="ycz-Qk-554"/>
                     </constraints>
-                </imageView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="h5t-QW-vDZ" userLabel="ActivityIndicator">
-                    <rect key="frame" x="101.5" y="434.5" width="37" height="37"/>
-                </activityIndicatorView>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaB-Th-yZa" userLabel="BottomGradientView">
+                    <rect key="frame" x="0.0" y="826" width="300" height="70"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="LUP-5w-RIz"/>
+                    </constraints>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z1A-sP-VUn" userLabel="TitleLabel">
-                    <rect key="frame" x="20" y="803" width="200" height="19"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                    <rect key="frame" x="20" y="850" width="260" height="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H3n-bS-v0z" userLabel="AuthorLabel">
+                    <rect key="frame" x="20" y="872" width="260" height="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Z1A-sP-VUn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0I8-kJ-EXI"/>
-                <constraint firstItem="Vf4-2V-CHs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0RW-Qk-kHg"/>
-                <constraint firstItem="h5t-QW-vDZ" firstAttribute="centerY" secondItem="Vf4-2V-CHs" secondAttribute="centerY" id="DGg-gC-s7d"/>
-                <constraint firstItem="h5t-QW-vDZ" firstAttribute="centerX" secondItem="Vf4-2V-CHs" secondAttribute="centerX" id="IZr-CQ-YhJ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vf4-2V-CHs" secondAttribute="bottom" id="Kmo-iD-ZCq"/>
-                <constraint firstItem="Vf4-2V-CHs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Pfa-nk-ExP"/>
-                <constraint firstItem="Vf4-2V-CHs" firstAttribute="trailing" secondItem="Z1A-sP-VUn" secondAttribute="trailing" constant="20" id="Trt-vo-BMF"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Z1A-sP-VUn" secondAttribute="bottom" constant="40" id="ezH-qM-SQ4"/>
+                <constraint firstItem="Z1A-sP-VUn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0I8-kJ-EXI"/>
+                <constraint firstItem="wEW-ta-2xE" firstAttribute="trailing" secondItem="H3n-bS-v0z" secondAttribute="trailing" constant="20" id="0Jq-Y5-1na"/>
+                <constraint firstItem="H3n-bS-v0z" firstAttribute="top" secondItem="Z1A-sP-VUn" secondAttribute="bottom" constant="5" id="Ek0-Ys-nEv"/>
+                <constraint firstAttribute="top" secondItem="wEW-ta-2xE" secondAttribute="top" id="INo-Z8-Zb7"/>
+                <constraint firstItem="qaB-Th-yZa" firstAttribute="bottom" secondItem="wEW-ta-2xE" secondAttribute="bottom" id="Lns-zl-L0Z"/>
+                <constraint firstItem="wEW-ta-2xE" firstAttribute="bottom" secondItem="H3n-bS-v0z" secondAttribute="bottom" constant="10" id="OpQ-aJ-RqB"/>
+                <constraint firstItem="qaB-Th-yZa" firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" id="RCN-th-ZkK"/>
+                <constraint firstItem="qaB-Th-yZa" firstAttribute="trailing" secondItem="wEW-ta-2xE" secondAttribute="trailing" id="W1k-bp-RZJ"/>
+                <constraint firstItem="wEW-ta-2xE" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="X4A-Hi-cgd"/>
+                <constraint firstItem="wEW-ta-2xE" firstAttribute="trailing" secondItem="Z1A-sP-VUn" secondAttribute="trailing" constant="20" id="ZT2-Ac-sqK"/>
+                <constraint firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" id="krf-t1-huU"/>
+                <constraint firstItem="H3n-bS-v0z" firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" constant="20" id="oFq-fl-z37"/>
             </constraints>
             <connections>
                 <outlet property="activityIndicator" destination="h5t-QW-vDZ" id="jRP-11-b00"/>
+                <outlet property="authorLabel" destination="H3n-bS-v0z" id="K6n-hF-f97"/>
+                <outlet property="bottomGradientView" destination="qaB-Th-yZa" id="ZkI-81-pcY"/>
+                <outlet property="imageScrollView" destination="wEW-ta-2xE" id="wF0-0u-23h"/>
                 <outlet property="imageView" destination="Vf4-2V-CHs" id="Rls-t2-oFH"/>
+                <outlet property="imageViewHeightConstraint" destination="wex-pm-B2b" id="N8U-4d-KDV"/>
                 <outlet property="imageViewWidthConstraint" destination="pK8-ld-kMo" id="cBa-zq-FSq"/>
                 <outlet property="titleLabel" destination="Z1A-sP-VUn" id="HgG-WQ-rSi"/>
             </connections>
-            <point key="canvasLocation" x="132" y="94"/>
+            <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
         </view>
     </objects>
     <resources>

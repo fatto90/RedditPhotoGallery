@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		950473AE275E7DC60051C3F7 /* PhotoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950473AD275E7DC60051C3F7 /* PhotoFetcher.swift */; };
+		950473B0275EB9870051C3F7 /* SafeAreaHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950473AF275EB9870051C3F7 /* SafeAreaHeight.swift */; };
 		95141C91275CB121007D3C38 /* RedditPhotoGalleryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95141C90275CB121007D3C38 /* RedditPhotoGalleryResponse.swift */; };
 		953C3B4E275E063500A3FAE2 /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953C3B4D275E063500A3FAE2 /* PhotoDetailsViewController.xib */; };
 		953C3B50275E18F500A3FAE2 /* PhotoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3B4F275E18F500A3FAE2 /* PhotoDetailsView.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		950473AD275E7DC60051C3F7 /* PhotoFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFetcher.swift; sourceTree = "<group>"; };
+		950473AF275EB9870051C3F7 /* SafeAreaHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaHeight.swift; sourceTree = "<group>"; };
 		95141C90275CB121007D3C38 /* RedditPhotoGalleryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPhotoGalleryResponse.swift; sourceTree = "<group>"; };
 		953C3B4D275E063500A3FAE2 /* PhotoDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailsViewController.xib; sourceTree = "<group>"; };
 		953C3B4F275E18F500A3FAE2 /* PhotoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		9599311D275BFE57006A746F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				950473AF275EB9870051C3F7 /* SafeAreaHeight.swift */,
 				950473AC275E7DB50051C3F7 /* PhotoFetcher */,
 				9599311E275BFE57006A746F /* ModuleComposer */,
 				95993120275BFE57006A746F /* Container */,
@@ -471,6 +474,7 @@
 				95993123275BFE57006A746F /* Container.swift in Sources */,
 				95C47764275CCBAD00A382AC /* PhotoGalleryViewModel.swift in Sources */,
 				95993133275BFE68006A746F /* PhotoGalleryRouter.swift in Sources */,
+				950473B0275EB9870051C3F7 /* SafeAreaHeight.swift in Sources */,
 				95993122275BFE57006A746F /* ModuleComposer.swift in Sources */,
 				955C02AC275D748000A3E7DC /* PhotoDetailsPresenter.swift in Sources */,
 				950473AE275E7DC60051C3F7 /* PhotoFetcher.swift in Sources */,

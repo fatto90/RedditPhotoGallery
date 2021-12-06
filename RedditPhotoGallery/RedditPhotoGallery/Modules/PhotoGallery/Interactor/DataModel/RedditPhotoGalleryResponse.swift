@@ -27,5 +27,5 @@ struct ImageData: Codable {
     let post_hint: String?
     let thumbnail: String?
     let url: String?
-    let description_html: String?
+    let author_fullname: String?
 }
