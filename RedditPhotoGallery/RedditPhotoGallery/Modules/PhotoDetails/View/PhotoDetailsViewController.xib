@@ -12,6 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoDetailsViewController" customModule="RedditPhotoGallery" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="FHm-Po-Q9E" id="i05-CS-VCw"/>
+                <outlet property="photoDetailsScrollContentView" destination="PIB-3u-RSu" id="zVk-wV-QS4"/>
+                <outlet property="photoDetailsScrollContentViewWidthConstraint" destination="RWG-fw-egJ" id="3Jf-fM-Xk0"/>
+                <outlet property="photoDetailsScrollView" destination="UZh-ry-hue" id="Q2C-4c-g8A"/>
                 <outlet property="view" destination="ALN-di-KUz" id="kL5-5e-6QE"/>
             </connections>
         </placeholder>
@@ -20,6 +23,27 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZh-ry-hue" userLabel="PhotoDetailsScrollView">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-3u-RSu" userLabel="PhotoDetailsScrollContentView">
+                            <rect key="frame" x="0.0" y="0.0" width="704" height="818"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="704" id="RWG-fw-egJ" userLabel="PhotoDetailsScrollContentViewWidthConstraint"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="PIB-3u-RSu" secondAttribute="bottom" id="Zb4-Ve-KYE"/>
+                        <constraint firstItem="PIB-3u-RSu" firstAttribute="leading" secondItem="UZh-ry-hue" secondAttribute="leading" id="aDF-G0-WXL"/>
+                        <constraint firstAttribute="trailing" secondItem="PIB-3u-RSu" secondAttribute="trailing" id="aq6-t6-0TG"/>
+                        <constraint firstItem="PIB-3u-RSu" firstAttribute="height" secondItem="UZh-ry-hue" secondAttribute="height" id="l65-0k-7IM"/>
+                        <constraint firstItem="PIB-3u-RSu" firstAttribute="top" secondItem="UZh-ry-hue" secondAttribute="top" id="z92-Wh-U0C"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="Ndg-fC-PV0"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="Lbg-YB-s4o"/>
+                </scrollView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="usG-j8-U69" userLabel="BackImageView">
                     <rect key="frame" x="15" y="61" width="40" height="36.5"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,7 +68,11 @@
             <viewLayoutGuide key="safeArea" id="Zto-KH-jJJ"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Zto-KH-jJJ" firstAttribute="trailing" secondItem="UZh-ry-hue" secondAttribute="trailing" id="DLM-VN-90r"/>
+                <constraint firstItem="UZh-ry-hue" firstAttribute="top" secondItem="Zto-KH-jJJ" secondAttribute="top" id="F0E-jf-n6G"/>
+                <constraint firstItem="Zto-KH-jJJ" firstAttribute="bottom" secondItem="UZh-ry-hue" secondAttribute="bottom" id="WQY-71-YQZ"/>
                 <constraint firstItem="FHm-Po-Q9E" firstAttribute="leading" secondItem="Zto-KH-jJJ" secondAttribute="leading" id="co8-Pb-B7d"/>
+                <constraint firstItem="UZh-ry-hue" firstAttribute="leading" secondItem="Zto-KH-jJJ" secondAttribute="leading" id="ik8-Jc-mRQ"/>
                 <constraint firstItem="usG-j8-U69" firstAttribute="centerX" secondItem="FHm-Po-Q9E" secondAttribute="centerX" id="niQ-P6-x8I"/>
                 <constraint firstItem="usG-j8-U69" firstAttribute="centerY" secondItem="FHm-Po-Q9E" secondAttribute="centerY" id="qaL-3A-Ofo"/>
                 <constraint firstItem="FHm-Po-Q9E" firstAttribute="top" secondItem="Zto-KH-jJJ" secondAttribute="top" id="rAt-mR-al0"/>

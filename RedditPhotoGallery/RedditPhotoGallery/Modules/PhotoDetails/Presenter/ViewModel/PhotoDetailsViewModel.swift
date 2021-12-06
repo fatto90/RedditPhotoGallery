@@ -9,4 +9,7 @@ import Foundation
 
 class PhotoDetailsViewModel {
     
+    var images: [PhotoImageViewModel]?
+    var startIndex: Int?
+    
 }
