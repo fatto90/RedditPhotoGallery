@@ -21,8 +21,11 @@
                         <constraint firstAttribute="width" constant="240" id="pK8-ld-kMo" userLabel="ImageViewWidthConstraint"/>
                     </constraints>
                 </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="h5t-QW-vDZ" userLabel="ActivityIndicator">
+                    <rect key="frame" x="101.5" y="434.5" width="37" height="37"/>
+                </activityIndicatorView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z1A-sP-VUn" userLabel="TitleLabel">
-                    <rect key="frame" x="20" y="823" width="200" height="19"/>
+                    <rect key="frame" x="20" y="803" width="200" height="19"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -33,12 +36,16 @@
             <constraints>
                 <constraint firstItem="Z1A-sP-VUn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0I8-kJ-EXI"/>
                 <constraint firstItem="Vf4-2V-CHs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0RW-Qk-kHg"/>
+                <constraint firstItem="h5t-QW-vDZ" firstAttribute="centerY" secondItem="Vf4-2V-CHs" secondAttribute="centerY" id="DGg-gC-s7d"/>
+                <constraint firstItem="h5t-QW-vDZ" firstAttribute="centerX" secondItem="Vf4-2V-CHs" secondAttribute="centerX" id="IZr-CQ-YhJ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vf4-2V-CHs" secondAttribute="bottom" id="Kmo-iD-ZCq"/>
                 <constraint firstItem="Vf4-2V-CHs" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Pfa-nk-ExP"/>
                 <constraint firstItem="Vf4-2V-CHs" firstAttribute="trailing" secondItem="Z1A-sP-VUn" secondAttribute="trailing" constant="20" id="Trt-vo-BMF"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Z1A-sP-VUn" secondAttribute="bottom" constant="20" id="ezH-qM-SQ4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Z1A-sP-VUn" secondAttribute="bottom" constant="40" id="ezH-qM-SQ4"/>
             </constraints>
             <connections>
+                <outlet property="activityIndicator" destination="h5t-QW-vDZ" id="jRP-11-b00"/>
+                <outlet property="imageView" destination="Vf4-2V-CHs" id="Rls-t2-oFH"/>
                 <outlet property="imageViewWidthConstraint" destination="pK8-ld-kMo" id="cBa-zq-FSq"/>
                 <outlet property="titleLabel" destination="Z1A-sP-VUn" id="HgG-WQ-rSi"/>
             </connections>

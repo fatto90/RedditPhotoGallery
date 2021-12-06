@@ -24,8 +24,27 @@ class PhotoDetailsPresenter {
     
     //MARK: Public members
     
+    public func getPhotoImage(url: String?, completion:@escaping (_ data: Foundation.Data?, _ url: String?) -> ()) {
+        if let strongUrl = url {
+            // fetch the image data in a background thread
+            DispatchQueue.global().async {
+                self.interactor.getPhotoData(url: strongUrl) { data in
+                    DispatchQueue.main.async {
+                        completion(data, url)
+                    }
+                }
+            }
+        } else {
+            completion(nil, url)
+        }
+    }
+    
     public func goBack() {
         self.router.dismissModule()
+    }
+    
+    public func update(startIndex: Int) {
+        self.startIndex = startIndex
     }
     
     public func refreshPhotoDetails() {

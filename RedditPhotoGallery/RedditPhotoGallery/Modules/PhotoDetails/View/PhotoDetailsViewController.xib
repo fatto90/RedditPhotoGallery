@@ -43,6 +43,9 @@
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="Ndg-fC-PV0"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="Lbg-YB-s4o"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="iyV-vC-4dQ"/>
+                    </connections>
                 </scrollView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="usG-j8-U69" userLabel="BackImageView">
                     <rect key="frame" x="15" y="61" width="40" height="36.5"/>

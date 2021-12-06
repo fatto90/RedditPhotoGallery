@@ -9,4 +9,14 @@ import Foundation
 
 class PhotoDetailsInteractor {
     
+    private let session: URLSession
+
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
+    
+    public func getPhotoData(url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
+        PhotoFetcher.shared.fetchPhoto(session: session, url: url, completionHandler: completionHandler)
+    }
+    
 }
