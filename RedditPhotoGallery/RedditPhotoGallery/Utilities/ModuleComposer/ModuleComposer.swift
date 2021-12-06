@@ -17,18 +17,30 @@ class ModuleComposer {
     // MARK: Modules
 
     var photoGallery: PhotoGalleryViewController!
+    var photoDetails: PhotoDetailsViewController!
 
     private init() {
         self.photoGallery = self.setupPhotoGallery()
+        self.photoDetails = self.setupPhotoDetails()
     }
     
     private func setupPhotoGallery() -> PhotoGalleryViewController {
         let interactor = PhotoGalleryInteractor()
         let router = PhotoGalleryRouter()
-        let presenter = PhotoGalleryPresenter.init(router: router, interactor: interactor)
-        let photoGallery = PhotoGalleryViewController.init(presenter: presenter)
+        let presenter = PhotoGalleryPresenter(router: router, interactor: interactor)
+        let photoGallery = PhotoGalleryViewController(presenter: presenter)
         router.view = photoGallery
         presenter.view = photoGallery
         return photoGallery
+    }
+    
+    private func setupPhotoDetails() -> PhotoDetailsViewController {
+        let interactor = PhotoDetailsInteractor()
+        let router = PhotoDetailsRouter()
+        let presenter = PhotoDetailsPresenter(router: router, interactor: interactor)
+        let photoDetails = PhotoDetailsViewController(presenter: presenter)
+        router.view = photoDetails
+        presenter.view = photoDetails
+        return photoDetails
     }
 }
