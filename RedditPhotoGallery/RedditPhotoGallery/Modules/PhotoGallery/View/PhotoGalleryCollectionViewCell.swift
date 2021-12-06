@@ -15,6 +15,7 @@ class PhotoGalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var notFoundImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var highlightedView: UIView!
     
     public static let identifier = "PhotoGalleryCollectionViewCell"
     public var presenter: PhotoGalleryPresenter?
@@ -50,7 +51,7 @@ class PhotoGalleryCollectionViewCell: UICollectionViewCell {
         })
         
     }
-    
+
     //MARK: private members
     
     private func shouldShowNotFound(show: Bool) {

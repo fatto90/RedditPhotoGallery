@@ -42,7 +42,7 @@
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="5uv-uN-RCd"/>
-                        <outlet property="delegate" destination="-1" id="5iI-Lz-Iaa"/>
+                        <outlet property="delegate" destination="-1" id="X15-sx-Aoj"/>
                     </connections>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8y-A8-xWc" userLabel="ExtraInfoView">

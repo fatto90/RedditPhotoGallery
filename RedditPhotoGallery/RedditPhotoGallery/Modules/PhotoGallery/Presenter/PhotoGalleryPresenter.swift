@@ -53,6 +53,12 @@ class PhotoGalleryPresenter {
         }
     }
     
+    public func showPhotoDetails(images: [PhotoImageViewModel]?, index: Int) {
+        if let strongImages = images {
+            self.router.showPhotoDetails(images: strongImages, index: index)
+        }
+    }
+    
     // MARK: Private members
     
     private func getPhotoGalleryData(query: String) {

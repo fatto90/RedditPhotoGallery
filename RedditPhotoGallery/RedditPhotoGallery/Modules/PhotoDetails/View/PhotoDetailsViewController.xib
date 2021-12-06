@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoDetailsViewController" customModule="RedditPhotoGallery" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="FHm-Po-Q9E" id="i05-CS-VCw"/>
                 <outlet property="view" destination="ALN-di-KUz" id="kL5-5e-6QE"/>
             </connections>
         </placeholder>
@@ -20,21 +21,21 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.backward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="usG-j8-U69" userLabel="BackImageView">
-                    <rect key="frame" x="10" y="56" width="50" height="46.5"/>
+                    <rect key="frame" x="15" y="61" width="40" height="36.5"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="ffg-gu-Ulh"/>
-                        <constraint firstAttribute="height" constant="50" id="lNX-fN-8yG"/>
+                        <constraint firstAttribute="width" constant="40" id="ffg-gu-Ulh"/>
+                        <constraint firstAttribute="height" constant="40" id="lNX-fN-8yG"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHm-Po-Q9E" userLabel="BackButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHm-Po-Q9E" userLabel="BackButton">
                     <rect key="frame" x="0.0" y="44" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="2Vr-EQ-YMe"/>
                         <constraint firstAttribute="height" constant="70" id="yXC-d9-Bcs"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <connections>
                         <action selector="performBackButton:" destination="-1" eventType="touchUpInside" id="DyT-Pi-x7n"/>
                     </connections>
@@ -48,7 +49,7 @@
                 <constraint firstItem="usG-j8-U69" firstAttribute="centerY" secondItem="FHm-Po-Q9E" secondAttribute="centerY" id="qaL-3A-Ofo"/>
                 <constraint firstItem="FHm-Po-Q9E" firstAttribute="top" secondItem="Zto-KH-jJJ" secondAttribute="top" id="rAt-mR-al0"/>
             </constraints>
-            <point key="canvasLocation" x="-928" y="198"/>
+            <point key="canvasLocation" x="-928.98550724637687" y="197.54464285714286"/>
         </view>
     </objects>
     <resources>

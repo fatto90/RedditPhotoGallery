@@ -21,4 +21,10 @@ class PhotoDetailsPresenter {
         self.interactor = interactor
         self.router = router
     }
+    
+    //MARK: Public members
+    
+    public func goBack() {
+        self.router.dismissModule()
+    }
 }

@@ -12,4 +12,7 @@ class PhotoDetailsRouter {
     
     weak var view: UIViewController?
     
+    public func dismissModule() {
+        self.view?.navigationController?.popViewController(animated: true)
+    }
 }

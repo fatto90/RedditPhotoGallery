@@ -13,6 +13,8 @@ class PhotoDetailsViewController: UIViewController {
     public var presenter: PhotoDetailsPresenter?
     private var viewModel: PhotoDetailsViewModel?
     
+    @IBOutlet weak var backButton: UIButton!
+    
     init(presenter: PhotoDetailsPresenter?) {
         super.init(nibName: "PhotoDetailsViewController", bundle: nil)
         self.presenter = presenter
@@ -29,5 +31,6 @@ class PhotoDetailsViewController: UIViewController {
     //MARK: Button actions members
     
     @IBAction func performBackButton(_ sender: UIButton) {
+        self.presenter?.goBack()
     }
 }

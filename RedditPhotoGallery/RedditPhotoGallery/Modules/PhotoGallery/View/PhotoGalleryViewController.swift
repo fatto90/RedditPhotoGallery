@@ -84,9 +84,20 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     
     //MARK: CollectionView delegate members
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            (cell as! PhotoGalleryCollectionViewCell).highlightedView.isHidden = false
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            (cell as! PhotoGalleryCollectionViewCell).highlightedView.isHidden = true
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cellViewModel = self.viewModel?.images?[indexPath.row]
-
+        self.presenter?.showPhotoDetails(images: self.viewModel?.images, index: indexPath.row)
     }
     
     //MARK: CollectionView flow layout delegate members
