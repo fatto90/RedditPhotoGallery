@@ -16,7 +16,7 @@ class PhotoDetailsInteractor {
     }
     
     public func getPhotoData(url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
-        PhotoFetcher.shared.fetchPhoto(session: session, url: url, completionHandler: completionHandler)
+        PhotoFetcher.fetchPhoto(session: session, url: url, completionHandler: completionHandler)
     }
     
 }

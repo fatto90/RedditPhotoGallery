@@ -75,7 +75,7 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
             let photoDetailsView = UINib(nibName: "PhotoDetailsView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PhotoDetailsView
             // provide position and frame to it
             let position = CGFloat(index) * UIScreen.main.bounds.width
-            photoDetailsView.frame = CGRect(x: position, y: 0, width: UIScreen.main.bounds.width, height: SafeAreaHeight.shared.getSafeAreaHeight())
+            photoDetailsView.frame = CGRect(x: position, y: 0, width: UIScreen.main.bounds.width, height: SafeAreaHeight.getSafeAreaHeight())
             
             self.photoDetailsScrollContentView?.addSubview(photoDetailsView)
             

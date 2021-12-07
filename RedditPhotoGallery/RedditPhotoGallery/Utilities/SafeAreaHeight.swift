@@ -10,9 +10,7 @@ import UIKit
 
 class SafeAreaHeight {
     
-    static let shared = SafeAreaHeight()
-    
-    public func getSafeAreaHeight() -> CGFloat {
+    public static func getSafeAreaHeight() -> CGFloat {
         var topPadding:CGFloat = 0
         var bottomPadding:CGFloat = 0
         if #available(iOS 13.0, *) {

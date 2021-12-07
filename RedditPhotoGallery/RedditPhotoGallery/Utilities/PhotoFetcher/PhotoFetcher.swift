@@ -9,9 +9,7 @@ import Foundation
 
 class PhotoFetcher {
     
-    static let shared = PhotoFetcher()
-    
-    public func fetchPhoto(session: URLSession, url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
+    public static func fetchPhoto(session: URLSession, url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
         if let url = URL(string: url) {
             let task = session.dataTask(with: url) { data, response, error in
                 // check if response is an image

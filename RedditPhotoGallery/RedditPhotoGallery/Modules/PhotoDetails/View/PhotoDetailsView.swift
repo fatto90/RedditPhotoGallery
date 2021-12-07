@@ -31,7 +31,7 @@ class PhotoDetailsView: UIView {
         self.imageScrollView.minimumZoomScale = 1.0
         self.imageScrollView.maximumZoomScale = 3.0
         self.imageViewWidthConstraint.constant = UIScreen.main.bounds.width
-        self.imageViewHeightConstraint.constant = SafeAreaHeight.shared.getSafeAreaHeight()
+        self.imageViewHeightConstraint.constant = SafeAreaHeight.getSafeAreaHeight()
         
         self.titleLabel.text = viewModel.title
         self.authorLabel.text = viewModel.author != nil ? "Made by \(String(describing: viewModel.author!))" : nil
