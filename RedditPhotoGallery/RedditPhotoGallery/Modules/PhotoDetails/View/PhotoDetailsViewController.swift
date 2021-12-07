@@ -20,7 +20,7 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     private var viewModel: PhotoDetailsViewModel?
     private var photoDetailsViews: [PhotoDetailsView]?
     private var currentPage: Int = 0
-    private var lastDeviceOrientation: UIDeviceOrientation = .portrait
+    private var lastDeviceOrientation: UIDeviceOrientation?
     
     init(presenter: PhotoDetailsPresenter?) {
         super.init(nibName: "PhotoDetailsViewController", bundle: nil)
@@ -44,8 +44,9 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     @objc func orientationChanged() {
         let newDeviceOrientation = UIDevice.current.orientation
         // refresh only if orientation is really changed
-        if (newDeviceOrientation.isLandscape && self.lastDeviceOrientation.isPortrait) ||
-            (newDeviceOrientation.isPortrait && self.lastDeviceOrientation.isLandscape) {
+        if ((self.lastDeviceOrientation == nil) ||
+            newDeviceOrientation.isLandscape && (self.lastDeviceOrientation?.isPortrait ?? false)) ||
+            (newDeviceOrientation.isPortrait && (self.lastDeviceOrientation?.isLandscape ?? false)) {
             self.presenter?.refreshPhotoDetails()
         }
         self.lastDeviceOrientation = newDeviceOrientation
