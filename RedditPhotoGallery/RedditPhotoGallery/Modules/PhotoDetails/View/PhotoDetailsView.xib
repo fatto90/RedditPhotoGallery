@@ -39,20 +39,20 @@
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaB-Th-yZa" userLabel="BottomGradientView">
-                    <rect key="frame" x="0.0" y="826" width="300" height="70"/>
+                    <rect key="frame" x="0.0" y="806" width="300" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="LUP-5w-RIz"/>
+                        <constraint firstAttribute="height" constant="90" id="LUP-5w-RIz"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Z1A-sP-VUn" userLabel="TitleLabel">
-                    <rect key="frame" x="20" y="850" width="260" height="17"/>
+                    <rect key="frame" x="20" y="840" width="260" height="17"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H3n-bS-v0z" userLabel="AuthorLabel">
-                    <rect key="frame" x="20" y="872" width="260" height="14"/>
+                    <rect key="frame" x="20" y="862" width="260" height="14"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -65,7 +65,7 @@
                 <constraint firstItem="H3n-bS-v0z" firstAttribute="top" secondItem="Z1A-sP-VUn" secondAttribute="bottom" constant="5" id="Ek0-Ys-nEv"/>
                 <constraint firstAttribute="top" secondItem="wEW-ta-2xE" secondAttribute="top" id="INo-Z8-Zb7"/>
                 <constraint firstItem="qaB-Th-yZa" firstAttribute="bottom" secondItem="wEW-ta-2xE" secondAttribute="bottom" id="Lns-zl-L0Z"/>
-                <constraint firstItem="wEW-ta-2xE" firstAttribute="bottom" secondItem="H3n-bS-v0z" secondAttribute="bottom" constant="10" id="OpQ-aJ-RqB"/>
+                <constraint firstItem="wEW-ta-2xE" firstAttribute="bottom" secondItem="H3n-bS-v0z" secondAttribute="bottom" constant="20" id="OpQ-aJ-RqB"/>
                 <constraint firstItem="qaB-Th-yZa" firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" id="RCN-th-ZkK"/>
                 <constraint firstItem="qaB-Th-yZa" firstAttribute="trailing" secondItem="wEW-ta-2xE" secondAttribute="trailing" id="W1k-bp-RZJ"/>
                 <constraint firstItem="wEW-ta-2xE" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="X4A-Hi-cgd"/>

@@ -20,6 +20,7 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     private var viewModel: PhotoDetailsViewModel?
     private var photoDetailsViews: [PhotoDetailsView]?
     private var currentPage: Int = 0
+    private var lastDeviceOrientation: UIDeviceOrientation = .portrait
     
     init(presenter: PhotoDetailsPresenter?) {
         super.init(nibName: "PhotoDetailsViewController", bundle: nil)
@@ -30,18 +31,29 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         super.init(coder: coder)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.presenter?.refreshPhotoDetails()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.presenter?.refreshOneTimePhotoDetails()
+    @objc func orientationChanged() {
+        let newDeviceOrientation = UIDevice.current.orientation
+        // refresh only if orientation is really changed
+        if (newDeviceOrientation.isLandscape && self.lastDeviceOrientation.isPortrait) ||
+            (newDeviceOrientation.isPortrait && self.lastDeviceOrientation.isLandscape) {
+            self.presenter?.refreshPhotoDetails()
+        }
+        self.lastDeviceOrientation = newDeviceOrientation
     }
     
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        self.presenter?.refreshPhotoDetails()
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
     }
     
     //MARK: Public members
@@ -63,8 +75,9 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         let imageViewModels = self.viewModel?.images ?? []
         self.photoDetailsViews = []
         
+        let viewWidth = self.photoDetailsScrollView.frame.width
         // evaluate the new scroll content view width based on number of images
-        self.photoDetailsScrollContentViewWidthConstraint.constant = CGFloat(imageViewModels.count) * UIScreen.main.bounds.width
+        self.photoDetailsScrollContentViewWidthConstraint.constant = CGFloat(imageViewModels.count) * viewWidth
         
         // force the scrollView to rerender in order to position subviews correctly
         self.photoDetailsScrollView.layoutIfNeeded()
@@ -73,10 +86,11 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         for imageViewModel in imageViewModels {
             // get a new image details view
             let photoDetailsView = UINib(nibName: "PhotoDetailsView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PhotoDetailsView
-            // provide position and frame to it
-            let position = CGFloat(index) * UIScreen.main.bounds.width
-            photoDetailsView.frame = CGRect(x: position, y: 0, width: UIScreen.main.bounds.width, height: SafeAreaHeight.getSafeAreaHeight())
             
+            // provide position and frame to it
+            let position = CGFloat(index) * viewWidth
+            photoDetailsView.frame = CGRect(x: position, y: 0, width: viewWidth, height: self.photoDetailsScrollView.frame.height)
+            photoDetailsView.setContentAspectRatio(width: viewWidth, height: self.photoDetailsScrollView.frame.height)
             self.photoDetailsScrollContentView?.addSubview(photoDetailsView)
             
             // tell her what to render
@@ -89,7 +103,7 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         }
         // set the current page from viewModel and load the image, show the image selected by user as first
         self.currentPage = self.viewModel?.startIndex ?? 0
-        self.photoDetailsScrollView.setContentOffset(CGPoint(x: CGFloat(self.currentPage) * UIScreen.main.bounds.width, y: 0), animated: false)
+        self.photoDetailsScrollView.setContentOffset(CGPoint(x: CGFloat(self.currentPage) * self.photoDetailsScrollView.bounds.width, y: 0), animated: false)
         self.loadCurrentPageImage()
     }
     

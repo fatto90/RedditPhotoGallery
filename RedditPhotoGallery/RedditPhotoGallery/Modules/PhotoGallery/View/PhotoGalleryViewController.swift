@@ -34,7 +34,6 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
         // Hide extra info section
         self.setExtraInfo(shouldShow: false)
     }
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         self.photoGalleryCollectionView.reloadData()
     }
@@ -57,11 +56,19 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
         self.extraInfoImageView.isHidden = !shouldShow
         self.extraInfoLabel.isHidden = !shouldShow
     }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
 
     //MARK: SearchBar delegate members
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.presenter?.refreshPhotoGallery(query: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
     }
     
     //MARK: CollectionView data source members

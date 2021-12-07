@@ -30,8 +30,6 @@ class PhotoDetailsView: UIView {
         // setup the zoom
         self.imageScrollView.minimumZoomScale = 1.0
         self.imageScrollView.maximumZoomScale = 3.0
-        self.imageViewWidthConstraint.constant = UIScreen.main.bounds.width
-        self.imageViewHeightConstraint.constant = SafeAreaHeight.getSafeAreaHeight()
         
         self.titleLabel.text = viewModel.title
         self.authorLabel.text = viewModel.author != nil ? "Made by \(String(describing: viewModel.author!))" : nil
@@ -41,10 +39,15 @@ class PhotoDetailsView: UIView {
         // setup and insert the gradient layer to bottom view
         self.bottomGradientLayer?.removeFromSuperlayer()
         self.bottomGradientLayer = CAGradientLayer()
-        self.bottomGradientLayer?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 70)
+        self.bottomGradientLayer?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.bottomGradientView.bounds.height)
         self.bottomGradientLayer?.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
 
         self.bottomGradientView?.layer.insertSublayer(self.bottomGradientLayer!, at: 0)
+    }
+    
+    public func setContentAspectRatio(width: CGFloat, height: CGFloat) {
+        self.imageViewWidthConstraint.constant = width
+        self.imageViewHeightConstraint.constant = height
     }
     
     public func renderImage() {

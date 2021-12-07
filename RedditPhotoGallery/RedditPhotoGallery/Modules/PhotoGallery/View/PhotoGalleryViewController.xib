@@ -26,7 +26,7 @@
             <subviews>
                 <searchBar contentMode="redraw" placeholder="Search images..." translatesAutoresizingMaskIntoConstraints="NO" id="vSZ-6M-s3H" userLabel="SearchBar">
                     <rect key="frame" x="0.0" y="44" width="414" height="51"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="FXo-5f-9Zf"/>
                     </connections>
