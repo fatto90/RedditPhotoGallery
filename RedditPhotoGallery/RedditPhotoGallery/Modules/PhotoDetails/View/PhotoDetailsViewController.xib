@@ -55,6 +55,7 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHm-Po-Q9E" userLabel="BackButton">
                     <rect key="frame" x="0.0" y="44" width="70" height="70"/>
+                    <accessibility key="accessibilityConfiguration" identifier="BackButton"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="2Vr-EQ-YMe"/>
                         <constraint firstAttribute="height" constant="70" id="yXC-d9-Bcs"/>
