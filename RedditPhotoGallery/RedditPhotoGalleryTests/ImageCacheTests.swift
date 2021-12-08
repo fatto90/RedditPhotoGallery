@@ -26,20 +26,20 @@ class ImageCacheTests: XCTestCase {
         super.tearDown()
     }
     
-    //MARK: getPhotoData tests
+    //MARK: getFromCache tests
     
     func test_getFromCache_should_return_expected_data() throws {
         //Arrange
         let expectedKey = "123"
         let expectedData = Foundation.Data()
-        self.userDefaultsMock.object = expectedData
+        self.userDefaultsMock.objects = [expectedData]
         
         //Act
         let result = self.sut.getFromCache(url: expectedKey)
         
         //Assert
         XCTAssertEqual(result, expectedData)
-        XCTAssertEqual(self.userDefaultsMock.receivedObjectKey, expectedKey)
+        XCTAssertEqual(self.userDefaultsMock.receivedObjectKeys[0], expectedKey)
     }
     
     func test_getFromCache_should_return_nil() throws {
@@ -51,7 +51,7 @@ class ImageCacheTests: XCTestCase {
         
         //Assert
         XCTAssertNil(result)
-        XCTAssertEqual(self.userDefaultsMock.receivedObjectKey, expectedKey)
+        XCTAssertEqual(self.userDefaultsMock.receivedObjectKeys[0], expectedKey)
     }
     
     //MARK: storeInCache tests
@@ -65,8 +65,8 @@ class ImageCacheTests: XCTestCase {
         self.sut.storeInCache(url: expectedKey, imageData: expectedData)
         
         //Assert
-        XCTAssertEqual(self.userDefaultsMock.receivedSetKey, expectedKey)
-        XCTAssertEqual(self.userDefaultsMock.receivedValue as? Foundation.Data, expectedData)
+        XCTAssertEqual(self.userDefaultsMock.receivedSetKeys[0], expectedKey)
+        XCTAssertEqual(self.userDefaultsMock.receivedValues[0] as? Foundation.Data, expectedData)
     }
     
 }

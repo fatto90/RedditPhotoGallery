@@ -37,6 +37,7 @@
 		9587983027610BAA0057502D /* ImageCacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587982F27610BAA0057502D /* ImageCacheMock.swift */; };
 		95879834276114110057502D /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95879833276114110057502D /* ImageCacheTests.swift */; };
 		95879836276114910057502D /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95879835276114910057502D /* UserDefaultsMock.swift */; };
+		9587983827611D3B0057502D /* PhotoGalleryCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587983727611D3B0057502D /* PhotoGalleryCacheTests.swift */; };
 		959930EC275BF50E006A746F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959930EB275BF50E006A746F /* AppDelegate.swift */; };
 		959930F5275BF50E006A746F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959930F4275BF50E006A746F /* Assets.xcassets */; };
 		959930F8275BF50E006A746F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959930F6275BF50E006A746F /* LaunchScreen.storyboard */; };
@@ -105,6 +106,7 @@
 		9587982F27610BAA0057502D /* ImageCacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheMock.swift; sourceTree = "<group>"; };
 		95879833276114110057502D /* ImageCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
 		95879835276114910057502D /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
+		9587983727611D3B0057502D /* PhotoGalleryCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCacheTests.swift; sourceTree = "<group>"; };
 		959930E8275BF50E006A746F /* RedditPhotoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditPhotoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959930EB275BF50E006A746F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959930F4275BF50E006A746F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				95879820276107FA0057502D /* PhotoDetailsTests */,
 				9587982D27610B9C0057502D /* PhotoFetcherTests.swift */,
 				95879833276114110057502D /* ImageCacheTests.swift */,
+				9587983727611D3B0057502D /* PhotoGalleryCacheTests.swift */,
 			);
 			path = RedditPhotoGalleryTests;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				9587983027610BAA0057502D /* ImageCacheMock.swift in Sources */,
 				95879824276108640057502D /* PhotoDetailsViewControllerMock.swift in Sources */,
 				9587981F2760FCFF0057502D /* PhotoFetcherMock.swift in Sources */,
+				9587983827611D3B0057502D /* PhotoGalleryCacheTests.swift in Sources */,
 				958798102760B6BC0057502D /* PhotoGalleryInteractorMock.swift in Sources */,
 				95879826276108770057502D /* PhotoDetailsInteractorMock.swift in Sources */,
 				9587981D2760FA3C0057502D /* URLProtocolMock.swift in Sources */,

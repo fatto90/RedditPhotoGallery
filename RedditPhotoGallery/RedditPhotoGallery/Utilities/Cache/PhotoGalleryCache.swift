@@ -13,9 +13,17 @@ class PhotoGalleryCache {
     
     static let shared = PhotoGalleryCache()
     
-    let childrensCacheKey = "childrensCacheKey"
-    let jsonEncoder = JSONEncoder()
-    let jsonDecoder = JSONDecoder()
+    private let userDefaults: UserDefaults
+    private let jsonEncoder: JSONEncoder
+    private let jsonDecoder: JSONDecoder
+    private let childrensCacheKey: String
+    
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+        self.jsonEncoder = JSONEncoder()
+        self.jsonDecoder = JSONDecoder()
+        self.childrensCacheKey = "childrensCacheKey"
+    }
     
     //MARK: Public members
     
@@ -52,14 +60,14 @@ class PhotoGalleryCache {
             }).map({ childrenData in
                 return childrenData.data!.id!
             })
-            UserDefaults.standard.set(childrenIds, forKey: query)
+            self.userDefaults.set(childrenIds, forKey: query)
             
             // update the all cached childrens without duplicates
             let allChildrens = self.getAllChildrensToCacheFor(newChildrens: childrens)
             // encode them to [Data] before save in cache.
             // the encode is needed because we cannot store complex objects in UserDefaults
             if let allChildrensData = self.encodeJsonFrom(childrens: allChildrens) {
-                UserDefaults.standard.set(allChildrensData, forKey: self.childrensCacheKey)
+                self.userDefaults.set(allChildrensData, forKey: self.childrensCacheKey)
             }
         }
     }
@@ -88,7 +96,7 @@ class PhotoGalleryCache {
     private func getCachedChildrenIdsFor(query: String) -> [String]? {
         var cachedChildrenIds: [String]? = nil
         // fetch children ids from cache if any for the input query
-        if let cachedArray = UserDefaults.standard.object(forKey: query) as? [String] {
+        if let cachedArray = self.userDefaults.object(forKey: query) as? [String] {
             cachedChildrenIds = cachedArray
         }
         return cachedChildrenIds
@@ -97,7 +105,7 @@ class PhotoGalleryCache {
     private func getCachedChildrens() -> [ChildrenData] {
         var cachedChildrens: [ChildrenData] = []
         // fetch all childrens stored so far from cache
-        if let cachedObject = UserDefaults.standard.object(forKey: self.childrensCacheKey) as? Foundation.Data {
+        if let cachedObject = self.userDefaults.object(forKey: self.childrensCacheKey) as? Foundation.Data {
             // decode the result
             cachedChildrens = self.decodeJsonFrom(data: cachedObject)
         }

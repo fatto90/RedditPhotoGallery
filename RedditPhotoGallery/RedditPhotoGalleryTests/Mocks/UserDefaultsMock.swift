@@ -9,19 +9,25 @@ import Foundation
 
 class UserDefaultsMock: UserDefaults {
     
-    var receivedObjectKey: String?
-    var receivedSetKey: String?
-    var receivedValue: Any?
-    var object: Any?
+    var receivedObjectKeys: [String] = []
+    var receivedSetKeys: [String] = []
+    var receivedValues: [Any?] = []
+    var objects: [Any?] = []
     
     override func object(forKey defaultName: String) -> Any? {
-        self.receivedObjectKey = defaultName
-        return self.object
+        self.receivedObjectKeys.append(defaultName)
+        // objects list used like a FIFO queue.
+        var resultObject: Any? = nil
+        if !self.objects.isEmpty {
+            resultObject = self.objects.first!
+            self.objects.removeFirst()
+        }
+        return resultObject
     }
     
     override func set(_ value: Any?, forKey defaultName: String) {
-        self.receivedSetKey = defaultName
-        self.receivedValue = value
+        self.receivedSetKeys.append(defaultName)
+        self.receivedValues.append(value)
     }
     
 }

@@ -35,4 +35,16 @@ class ChildrensDataBuilder {
         return childrens
     }
     
+    public static func getFakeChildren() -> ChildrenData {
+        let imageData = ImageData(id: "id3",
+                                   title: "third image",
+                                   post_hint: "image",
+                                   thumbnail: "thirdThumbnailUrl",
+                                   url: "thirdImageUrl",
+                                   author_fullname: "third image author")
+        
+        let children = ChildrenData(data: imageData)
+        return children
+    }
+    
 }
