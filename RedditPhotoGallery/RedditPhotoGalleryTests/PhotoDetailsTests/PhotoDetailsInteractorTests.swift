@@ -12,7 +12,6 @@ class PhotoDetailsInteractorTests: XCTestCase {
 
     var sut: PhotoDetailsInteractor!
     
-    var urlSessionMock: URLSession!
     var photoFetcherMock: PhotoFetcherMock!
     
     let query = "query"
