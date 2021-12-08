@@ -63,7 +63,7 @@ class PhotoGalleryPresenterTests: XCTestCase {
     
     func test_should_build_images_from_data() throws {
         //Arrange
-        let fakeData = self.getFakeChildrens()
+        let fakeData = ChildrensDataBuilder.getFakeChildrens()
         self.interactorMock.childrensData = fakeData
         let expectation = XCTestExpectation(description: "Download images")
         
@@ -167,31 +167,6 @@ class PhotoGalleryPresenterTests: XCTestCase {
             XCTAssertEqual(image.title, children.data?.title)
             XCTAssertEqual(image.author, children.data?.author_fullname)
         }
-    }
-    
-    private func getFakeChildrens() -> [ChildrenData] {
-        var childrens: [ChildrenData] = []
-        
-        let firstImageData = ImageData(id: "id1",
-                                       title: "first image",
-                                       post_hint: "image",
-                                       thumbnail: "firstThumbnailUrl",
-                                       url: "firstImageUrl",
-                                       author_fullname: "first image author")
-        
-        let firstChildren = ChildrenData(data: firstImageData)
-        childrens.append(firstChildren)
-        
-        let secondImageData = ImageData(id: "id2",
-                                       title: "second image",
-                                       post_hint: "image",
-                                       thumbnail: "secondThumbnailUrl",
-                                       url: "secondImageUrl",
-                                       author_fullname: "second image author")
-        
-        let secondChildren = ChildrenData(data: secondImageData)
-        childrens.append(secondChildren)
-        return childrens
     }
 
 }

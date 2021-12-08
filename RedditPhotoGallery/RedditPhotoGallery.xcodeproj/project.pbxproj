@@ -23,6 +23,11 @@
 		958798102760B6BC0057502D /* PhotoGalleryInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587980F2760B6BC0057502D /* PhotoGalleryInteractorMock.swift */; };
 		958798122760B6D10057502D /* PhotoGalleryRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958798112760B6D10057502D /* PhotoGalleryRouterMock.swift */; };
 		958798142760DEE50057502D /* PhotoGalleryInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958798132760DEE50057502D /* PhotoGalleryInteractorTests.swift */; };
+		958798162760DFF20057502D /* PhotoGalleryCacheMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958798152760DFF20057502D /* PhotoGalleryCacheMock.swift */; };
+		958798182760E0030057502D /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958798172760E0030057502D /* URLSessionMock.swift */; };
+		9587981B2760F5390057502D /* ChildrensDataBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587981A2760F5390057502D /* ChildrensDataBuilder.swift */; };
+		9587981D2760FA3C0057502D /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587981C2760FA3C0057502D /* URLProtocolMock.swift */; };
+		9587981F2760FCFF0057502D /* PhotoFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9587981E2760FCFF0057502D /* PhotoFetcherMock.swift */; };
 		959930EC275BF50E006A746F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959930EB275BF50E006A746F /* AppDelegate.swift */; };
 		959930F5275BF50E006A746F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959930F4275BF50E006A746F /* Assets.xcassets */; };
 		959930F8275BF50E006A746F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959930F6275BF50E006A746F /* LaunchScreen.storyboard */; };
@@ -77,6 +82,11 @@
 		9587980F2760B6BC0057502D /* PhotoGalleryInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryInteractorMock.swift; sourceTree = "<group>"; };
 		958798112760B6D10057502D /* PhotoGalleryRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryRouterMock.swift; sourceTree = "<group>"; };
 		958798132760DEE50057502D /* PhotoGalleryInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryInteractorTests.swift; sourceTree = "<group>"; };
+		958798152760DFF20057502D /* PhotoGalleryCacheMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCacheMock.swift; sourceTree = "<group>"; };
+		958798172760E0030057502D /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		9587981A2760F5390057502D /* ChildrensDataBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrensDataBuilder.swift; sourceTree = "<group>"; };
+		9587981C2760FA3C0057502D /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		9587981E2760FCFF0057502D /* PhotoFetcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFetcherMock.swift; sourceTree = "<group>"; };
 		959930E8275BF50E006A746F /* RedditPhotoGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditPhotoGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		959930EB275BF50E006A746F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959930F4275BF50E006A746F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,7 +210,6 @@
 		958798062760B0B20057502D /* PhotoGalleryTests */ = {
 			isa = PBXGroup;
 			children = (
-				958798082760B1F40057502D /* Mocks */,
 				9587980B2760B6500057502D /* PhotoGalleryPresenterTests.swift */,
 				958798132760DEE50057502D /* PhotoGalleryInteractorTests.swift */,
 			);
@@ -213,8 +222,20 @@
 				9587980D2760B66D0057502D /* PhotoGalleryViewControllerMock.swift */,
 				9587980F2760B6BC0057502D /* PhotoGalleryInteractorMock.swift */,
 				958798112760B6D10057502D /* PhotoGalleryRouterMock.swift */,
+				958798152760DFF20057502D /* PhotoGalleryCacheMock.swift */,
+				958798172760E0030057502D /* URLSessionMock.swift */,
+				9587981C2760FA3C0057502D /* URLProtocolMock.swift */,
+				9587981E2760FCFF0057502D /* PhotoFetcherMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		958798192760F5210057502D /* DataBuilders */ = {
+			isa = PBXGroup;
+			children = (
+				9587981A2760F5390057502D /* ChildrensDataBuilder.swift */,
+			);
+			path = DataBuilders;
 			sourceTree = "<group>";
 		};
 		959930DF275BF50E006A746F = {
@@ -253,6 +274,8 @@
 		95993101275BF50F006A746F /* RedditPhotoGalleryTests */ = {
 			isa = PBXGroup;
 			children = (
+				958798082760B1F40057502D /* Mocks */,
+				958798192760F5210057502D /* DataBuilders */,
 				958798062760B0B20057502D /* PhotoGalleryTests */,
 			);
 			path = RedditPhotoGalleryTests;
@@ -540,11 +563,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9587981F2760FCFF0057502D /* PhotoFetcherMock.swift in Sources */,
 				958798102760B6BC0057502D /* PhotoGalleryInteractorMock.swift in Sources */,
+				9587981D2760FA3C0057502D /* URLProtocolMock.swift in Sources */,
 				9587980E2760B66D0057502D /* PhotoGalleryViewControllerMock.swift in Sources */,
+				9587981B2760F5390057502D /* ChildrensDataBuilder.swift in Sources */,
 				9587980C2760B6500057502D /* PhotoGalleryPresenterTests.swift in Sources */,
 				958798122760B6D10057502D /* PhotoGalleryRouterMock.swift in Sources */,
+				958798162760DFF20057502D /* PhotoGalleryCacheMock.swift in Sources */,
 				958798142760DEE50057502D /* PhotoGalleryInteractorTests.swift in Sources */,
+				958798182760E0030057502D /* URLSessionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,15 +9,29 @@ import Foundation
 
 class PhotoFetcher {
     
-    public static func fetchPhoto(session: URLSession, url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
-        if let cachedImageData = ImageCache.shared.getFromCache(url: url) {
+    // MARK: Properties
+    
+    static let shared = PhotoFetcher()
+
+    private let session: URLSession
+    private let cache: ImageCache
+    
+    init(session: URLSession = .shared, cache: ImageCache = .shared) {
+        self.session = session
+        self.cache = cache
+    }
+    
+    // MARK: Public members
+    
+    public func fetchPhoto(url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
+        if let cachedImageData = self.cache.getFromCache(url: url) {
             completionHandler(cachedImageData)
         } else {
             if let urlObject = URL(string: url) {
-                let task = session.dataTask(with: urlObject) { data, response, error in
+                let task = self.session.dataTask(with: urlObject) { data, response, error in
                     // check if response is an image
                     if let mimeType = response?.mimeType, mimeType.hasPrefix("image"), let data = data {
-                        ImageCache.shared.storeInCache(url: url, imageData: data)
+                        self.cache.storeInCache(url: url, imageData: data)
                         completionHandler(data)
                     } else {
                         completionHandler(nil)

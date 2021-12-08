@@ -11,12 +11,14 @@ class PhotoGalleryInteractor {
     
     private let session: URLSession
     private let cache: PhotoGalleryCache
+    private let photoFetcher: PhotoFetcher
     private let urlString: String
     private let queryPlaceholder: String
 
-    init(session: URLSession = .shared, cache: PhotoGalleryCache = .shared) {
+    init(session: URLSession = .shared, cache: PhotoGalleryCache = .shared, photoFetcher: PhotoFetcher = .shared) {
         self.session = session
         self.cache = cache
+        self.photoFetcher = photoFetcher
         self.queryPlaceholder = "{KEYWORD}"
         self.urlString = "https://www.reddit.com/r/\(self.queryPlaceholder)/top.json"
     }
@@ -56,7 +58,7 @@ class PhotoGalleryInteractor {
     }
     
     public func getPhotoData(url: String, completionHandler:@escaping (_ data: Foundation.Data?) -> ()) {
-        PhotoFetcher.fetchPhoto(session: session, url: url, completionHandler: completionHandler)
+        self.photoFetcher.fetchPhoto(url: url, completionHandler: completionHandler)
     }
     
     // MARK: Private members
