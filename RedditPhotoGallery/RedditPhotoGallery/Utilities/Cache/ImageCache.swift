@@ -13,12 +13,18 @@ class ImageCache {
     
     static let shared = ImageCache()
     
+    private let userDefaults: UserDefaults
+    
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+    }
+    
     //MARK: Public members
     
     public func getFromCache(url: String) -> Foundation.Data? {
         var result: Foundation.Data? = nil
         
-        if let cachedImageData = UserDefaults.standard.object(forKey: url) as? Foundation.Data {
+        if let cachedImageData = self.userDefaults.object(forKey: url) as? Foundation.Data {
             result = cachedImageData
         }
         
@@ -26,7 +32,7 @@ class ImageCache {
     }
     
     public func storeInCache(url: String, imageData: Foundation.Data) {
-        UserDefaults.standard.set(imageData, forKey: url)
+        self.userDefaults.set(imageData, forKey: url)
     }
     
     //MARK: Private members
