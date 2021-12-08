@@ -85,15 +85,12 @@ class PhotoGalleryPresenter {
         
         var imageViewModels = [PhotoImageViewModel]()
         for children in childrens {
-            // check if reddit post is an image
-            if children.data?.post_hint == "image" {
-                let imageViewModel = PhotoImageViewModel()
-                imageViewModel.title = children.data?.title
-                imageViewModel.imageUrl = children.data?.url
-                imageViewModel.thumbnailUrl = children.data?.thumbnail
-                imageViewModel.author = children.data?.author_fullname
-                imageViewModels.append(imageViewModel)
-            }
+            let imageViewModel = PhotoImageViewModel()
+            imageViewModel.title = children.data?.title
+            imageViewModel.imageUrl = children.data?.url
+            imageViewModel.thumbnailUrl = children.data?.thumbnail
+            imageViewModel.author = children.data?.author_fullname
+            imageViewModels.append(imageViewModel)
         }
         viewModel.showExtraInfo = query.isEmpty || imageViewModels.isEmpty || loading
         viewModel.extraInfoText = self.getExtraInfoTextFor(query: query, imageViewModels: imageViewModels, loading: loading)

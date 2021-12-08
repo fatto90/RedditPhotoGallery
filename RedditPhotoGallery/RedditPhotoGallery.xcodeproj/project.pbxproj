@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		950473AE275E7DC60051C3F7 /* PhotoFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950473AD275E7DC60051C3F7 /* PhotoFetcher.swift */; };
-		950473B0275EB9870051C3F7 /* SafeAreaHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950473AF275EB9870051C3F7 /* SafeAreaHeight.swift */; };
 		95141C91275CB121007D3C38 /* RedditPhotoGalleryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95141C90275CB121007D3C38 /* RedditPhotoGalleryResponse.swift */; };
 		953C3B4E275E063500A3FAE2 /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953C3B4D275E063500A3FAE2 /* PhotoDetailsViewController.xib */; };
 		953C3B50275E18F500A3FAE2 /* PhotoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953C3B4F275E18F500A3FAE2 /* PhotoDetailsView.swift */; };
@@ -35,6 +34,8 @@
 		95C47766275CCE3D00A382AC /* PhotoImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C47765275CCE3D00A382AC /* PhotoImageViewModel.swift */; };
 		95C47768275D004C00A382AC /* PhotoGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C47767275D004C00A382AC /* PhotoGalleryCollectionViewCell.swift */; };
 		95C4776A275D005D00A382AC /* PhotoGalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C47769275D005D00A382AC /* PhotoGalleryCollectionViewCell.xib */; };
+		95E07721275FB802000A0E41 /* PhotoGalleryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E07720275FB802000A0E41 /* PhotoGalleryCache.swift */; };
+		95E07729275FDBBD000A0E41 /* CachedChildrens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E07728275FDBBC000A0E41 /* CachedChildrens.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		950473AD275E7DC60051C3F7 /* PhotoFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFetcher.swift; sourceTree = "<group>"; };
-		950473AF275EB9870051C3F7 /* SafeAreaHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaHeight.swift; sourceTree = "<group>"; };
 		95141C90275CB121007D3C38 /* RedditPhotoGalleryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditPhotoGalleryResponse.swift; sourceTree = "<group>"; };
 		953C3B4D275E063500A3FAE2 /* PhotoDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoDetailsViewController.xib; sourceTree = "<group>"; };
 		953C3B4F275E18F500A3FAE2 /* PhotoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsView.swift; sourceTree = "<group>"; };
@@ -87,6 +87,8 @@
 		95C47765275CCE3D00A382AC /* PhotoImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImageViewModel.swift; sourceTree = "<group>"; };
 		95C47767275D004C00A382AC /* PhotoGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		95C47769275D005D00A382AC /* PhotoGalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoGalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		95E07720275FB802000A0E41 /* PhotoGalleryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCache.swift; sourceTree = "<group>"; };
+		95E07728275FDBBC000A0E41 /* CachedChildrens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedChildrens.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,7 +240,7 @@
 		9599311D275BFE57006A746F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				950473AF275EB9870051C3F7 /* SafeAreaHeight.swift */,
+				95E07722275FB9A3000A0E41 /* Cache */,
 				950473AC275E7DB50051C3F7 /* PhotoFetcher */,
 				9599311E275BFE57006A746F /* ModuleComposer */,
 				95993120275BFE57006A746F /* Container */,
@@ -326,6 +328,23 @@
 				95C47765275CCE3D00A382AC /* PhotoImageViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		95E07722275FB9A3000A0E41 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				95E07723275FB9C2000A0E41 /* Models */,
+				95E07720275FB802000A0E41 /* PhotoGalleryCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		95E07723275FB9C2000A0E41 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95E07728275FDBBC000A0E41 /* CachedChildrens.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,10 +481,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E07729275FDBBD000A0E41 /* CachedChildrens.swift in Sources */,
 				955C02B0275D74A200A3E7DC /* PhotoDetailsRouter.swift in Sources */,
 				953C3B50275E18F500A3FAE2 /* PhotoDetailsView.swift in Sources */,
 				955C02AE275D749600A3E7DC /* PhotoDetailsViewController.swift in Sources */,
 				955C02B3275D750700A3E7DC /* PhotoDetailsViewModel.swift in Sources */,
+				95E07721275FB802000A0E41 /* PhotoGalleryCache.swift in Sources */,
 				95141C91275CB121007D3C38 /* RedditPhotoGalleryResponse.swift in Sources */,
 				9599312F275BFE68006A746F /* PhotoGalleryPresenter.swift in Sources */,
 				959930EC275BF50E006A746F /* AppDelegate.swift in Sources */,
@@ -474,7 +495,6 @@
 				95993123275BFE57006A746F /* Container.swift in Sources */,
 				95C47764275CCBAD00A382AC /* PhotoGalleryViewModel.swift in Sources */,
 				95993133275BFE68006A746F /* PhotoGalleryRouter.swift in Sources */,
-				950473B0275EB9870051C3F7 /* SafeAreaHeight.swift in Sources */,
 				95993122275BFE57006A746F /* ModuleComposer.swift in Sources */,
 				955C02AC275D748000A3E7DC /* PhotoDetailsPresenter.swift in Sources */,
 				950473AE275E7DC60051C3F7 /* PhotoFetcher.swift in Sources */,
@@ -651,6 +671,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS63H9F33X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RedditPhotoGallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -678,6 +699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SS63H9F33X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RedditPhotoGallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

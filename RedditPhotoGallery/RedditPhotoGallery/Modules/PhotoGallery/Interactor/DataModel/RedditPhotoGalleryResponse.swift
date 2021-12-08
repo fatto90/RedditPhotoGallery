@@ -22,8 +22,8 @@ struct ChildrenData: Codable {
 }
 
 struct ImageData: Codable {
+    let id: String?
     let title: String?
-    let header_img: String?
     let post_hint: String?
     let thumbnail: String?
     let url: String?
