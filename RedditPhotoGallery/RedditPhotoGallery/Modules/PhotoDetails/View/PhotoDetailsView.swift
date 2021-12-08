@@ -52,9 +52,10 @@ class PhotoDetailsView: UIView {
     
     public func renderImage() {
         // remove old image if present
-        self.imageView.image = nil
-        self.activityIndicator.startAnimating()
-        self.activityIndicator.isHidden = false
+        if self.imageView.image == nil {
+            self.activityIndicator.startAnimating()
+            self.activityIndicator.isHidden = false
+        }
         
         // fetch image data
         self.presenter?.getPhotoImage(url: self.viewModel?.imageUrl, completion: {[weak self] data, url in
