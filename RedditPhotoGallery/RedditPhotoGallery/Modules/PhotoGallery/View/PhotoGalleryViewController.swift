@@ -30,7 +30,7 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.photoGalleryCollectionView.register(UINib(nibName: PhotoGalleryCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: PhotoGalleryCollectionViewCell.identifier)
-        self.presenter?.refreshPhotoGallery(query: "")
+        self.presenter?.refreshPhotoGallery(query: "") { }
         // Hide extra info section
         self.setExtraInfo(shouldShow: false)
     }
@@ -64,7 +64,7 @@ class PhotoGalleryViewController: UIViewController, UISearchBarDelegate, UIColle
     //MARK: SearchBar delegate members
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.presenter?.refreshPhotoGallery(query: searchText)
+        self.presenter?.refreshPhotoGallery(query: searchText) { }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

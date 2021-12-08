@@ -24,7 +24,7 @@ class PhotoGalleryPresenter {
     
     // MARK: Public members
     
-    public func refreshPhotoGallery(query: String) {
+    public func refreshPhotoGallery(query: String, completion:@escaping () -> ()) {
         // set view to loading state
         let viewModel = self.getPhotoGalleryViewModel(query: query, childrens: [], loading: true)
         self.view?.renderViewModel(viewModel: viewModel)
@@ -34,7 +34,7 @@ class PhotoGalleryPresenter {
         
         // create the new search request
         self.currentDataFetchWorkItem = DispatchWorkItem(block: {
-            self.getPhotoGalleryData(query: query, workItem: self.currentDataFetchWorkItem!)
+            self.getPhotoGalleryData(query: query, workItem: self.currentDataFetchWorkItem!, completion: completion)
         })
         // launch the search request in a background thread using a sequencial Queue
         DispatchQueue(label: "serial.queue").async(execute: self.currentDataFetchWorkItem!)
@@ -63,19 +63,17 @@ class PhotoGalleryPresenter {
     
     // MARK: Private members
     
-    private func getPhotoGalleryData(query: String, workItem: DispatchWorkItem) {
+    private func getPhotoGalleryData(query: String, workItem: DispatchWorkItem, completion:@escaping () -> ()) {
         // fetch data from interactor
         self.interactor.getPhotoGallery(query: query) {[weak self] childrens in
             // generate viewModel from data result, empty if something went wrong
             let viewModel = self?.getPhotoGalleryViewModel(query: query, childrens: childrens, loading: false)
             DispatchQueue.main.async {
-                // Update gallery if this the last search
-                if workItem.isCancelled {
-                    return
-                }
-                if let strongViewModel = viewModel {
+                // Update gallery if this is the last search
+                if let strongViewModel = viewModel, workItem.isCancelled == false {
                     self?.view?.renderViewModel(viewModel: strongViewModel)
                 }
+                completion()
             }
         }
     }
