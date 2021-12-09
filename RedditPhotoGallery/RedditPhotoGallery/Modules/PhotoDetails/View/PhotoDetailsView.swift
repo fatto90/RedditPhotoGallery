@@ -16,11 +16,13 @@ class PhotoDetailsView: UIView {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var bottomGradientView: UIView!
+    @IBOutlet weak var topGradientView: UIView!
     @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     public var viewModel: PhotoImageViewModel?
     public var presenter: PhotoDetailsPresenter?
+    public var topGradientLayer: CAGradientLayer?
     public var bottomGradientLayer: CAGradientLayer?
     
     //MARK: Public members
@@ -36,13 +38,8 @@ class PhotoDetailsView: UIView {
         self.titleLabel.textColor = UIColor.white
         self.authorLabel.textColor = UIColor.white
         
-        // setup and insert the gradient layer to bottom view
-        self.bottomGradientLayer?.removeFromSuperlayer()
-        self.bottomGradientLayer = CAGradientLayer()
-        self.bottomGradientLayer?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.bottomGradientView.bounds.height)
-        self.bottomGradientLayer?.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
-
-        self.bottomGradientView?.layer.insertSublayer(self.bottomGradientLayer!, at: 0)
+        // setup and insert the gradient layer to bottom and top views
+        self.applyTopBottomGradientLayers()
     }
     
     public func setContentAspectRatio(width: CGFloat, height: CGFloat) {
@@ -76,5 +73,23 @@ class PhotoDetailsView: UIView {
     
     public func setImageScrollViewDelegate(delegate: UIScrollViewDelegate) {
         self.imageScrollView.delegate = delegate
+    }
+    
+    //MARK: Private members
+    
+    public func applyTopBottomGradientLayers() {
+        self.topGradientLayer?.removeFromSuperlayer()
+        self.topGradientLayer = CAGradientLayer()
+        self.topGradientLayer?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.topGradientView.bounds.height)
+        self.topGradientLayer?.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+
+        self.topGradientView?.layer.insertSublayer(self.topGradientLayer!, at: 0)
+        
+        self.bottomGradientLayer?.removeFromSuperlayer()
+        self.bottomGradientLayer = CAGradientLayer()
+        self.bottomGradientLayer?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.bottomGradientView.bounds.height)
+        self.bottomGradientLayer?.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
+
+        self.bottomGradientView?.layer.insertSublayer(self.bottomGradientLayer!, at: 0)
     }
 }

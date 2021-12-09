@@ -40,6 +40,13 @@
                         <constraint firstItem="Vf4-2V-CHs" firstAttribute="width" secondItem="wEW-ta-2xE" secondAttribute="width" id="ycz-Qk-554"/>
                     </constraints>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvm-cj-nxd" userLabel="TopGradientView">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="j3i-VK-bhu"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaB-Th-yZa" userLabel="BottomGradientView">
                     <rect key="frame" x="0.0" y="806" width="300" height="90"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,6 +74,7 @@
                 <constraint firstItem="Z1A-sP-VUn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0I8-kJ-EXI"/>
                 <constraint firstItem="wEW-ta-2xE" firstAttribute="trailing" secondItem="H3n-bS-v0z" secondAttribute="trailing" constant="20" id="0Jq-Y5-1na"/>
                 <constraint firstItem="H3n-bS-v0z" firstAttribute="top" secondItem="Z1A-sP-VUn" secondAttribute="bottom" constant="5" id="Ek0-Ys-nEv"/>
+                <constraint firstItem="mvm-cj-nxd" firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" id="GvI-BG-DHA"/>
                 <constraint firstAttribute="top" secondItem="wEW-ta-2xE" secondAttribute="top" id="INo-Z8-Zb7"/>
                 <constraint firstItem="qaB-Th-yZa" firstAttribute="bottom" secondItem="wEW-ta-2xE" secondAttribute="bottom" id="Lns-zl-L0Z"/>
                 <constraint firstItem="wEW-ta-2xE" firstAttribute="bottom" secondItem="H3n-bS-v0z" secondAttribute="bottom" constant="20" id="OpQ-aJ-RqB"/>
@@ -76,6 +84,8 @@
                 <constraint firstItem="wEW-ta-2xE" firstAttribute="trailing" secondItem="Z1A-sP-VUn" secondAttribute="trailing" constant="20" id="ZT2-Ac-sqK"/>
                 <constraint firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" id="krf-t1-huU"/>
                 <constraint firstItem="H3n-bS-v0z" firstAttribute="leading" secondItem="wEW-ta-2xE" secondAttribute="leading" constant="20" id="oFq-fl-z37"/>
+                <constraint firstItem="mvm-cj-nxd" firstAttribute="top" secondItem="wEW-ta-2xE" secondAttribute="top" id="xGO-81-Qwr"/>
+                <constraint firstItem="mvm-cj-nxd" firstAttribute="trailing" secondItem="wEW-ta-2xE" secondAttribute="trailing" id="ybf-Ek-zsZ"/>
             </constraints>
             <connections>
                 <outlet property="activityIndicator" destination="h5t-QW-vDZ" id="jRP-11-b00"/>
@@ -86,6 +96,7 @@
                 <outlet property="imageViewHeightConstraint" destination="wex-pm-B2b" id="N8U-4d-KDV"/>
                 <outlet property="imageViewWidthConstraint" destination="pK8-ld-kMo" id="cBa-zq-FSq"/>
                 <outlet property="titleLabel" destination="Z1A-sP-VUn" id="HgG-WQ-rSi"/>
+                <outlet property="topGradientView" destination="mvm-cj-nxd" id="gNE-vM-btd"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="93.75"/>
         </view>

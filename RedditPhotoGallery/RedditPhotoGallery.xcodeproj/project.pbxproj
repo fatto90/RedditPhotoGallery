@@ -51,6 +51,7 @@
 		95993131275BFE68006A746F /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599312A275BFE68006A746F /* PhotoGalleryViewController.swift */; };
 		95993132275BFE68006A746F /* PhotoGalleryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599312C275BFE68006A746F /* PhotoGalleryInteractor.swift */; };
 		95993133275BFE68006A746F /* PhotoGalleryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9599312E275BFE68006A746F /* PhotoGalleryRouter.swift */; };
+		95A0BF7B2762B387002C5BDA /* OrientationLockUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A0BF7A2762B387002C5BDA /* OrientationLockUtility.swift */; };
 		95C47764275CCBAD00A382AC /* PhotoGalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C47763275CCBAD00A382AC /* PhotoGalleryViewModel.swift */; };
 		95C47766275CCE3D00A382AC /* PhotoImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C47765275CCE3D00A382AC /* PhotoImageViewModel.swift */; };
 		95C47768275D004C00A382AC /* PhotoGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C47767275D004C00A382AC /* PhotoGalleryCollectionViewCell.swift */; };
@@ -125,6 +126,7 @@
 		9599312A275BFE68006A746F /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
 		9599312C275BFE68006A746F /* PhotoGalleryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryInteractor.swift; sourceTree = "<group>"; };
 		9599312E275BFE68006A746F /* PhotoGalleryRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryRouter.swift; sourceTree = "<group>"; };
+		95A0BF7A2762B387002C5BDA /* OrientationLockUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationLockUtility.swift; sourceTree = "<group>"; };
 		95C47763275CCBAD00A382AC /* PhotoGalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewModel.swift; sourceTree = "<group>"; };
 		95C47765275CCE3D00A382AC /* PhotoImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoImageViewModel.swift; sourceTree = "<group>"; };
 		95C47767275D004C00A382AC /* PhotoGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				950473AC275E7DB50051C3F7 /* PhotoFetcher */,
 				9599311E275BFE57006A746F /* ModuleComposer */,
 				95993120275BFE57006A746F /* Container */,
+				95A0BF7A2762B387002C5BDA /* OrientationLockUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A0BF7B2762B387002C5BDA /* OrientationLockUtility.swift in Sources */,
 				95E07729275FDBBD000A0E41 /* CachedChildrens.swift in Sources */,
 				955C02B0275D74A200A3E7DC /* PhotoDetailsRouter.swift in Sources */,
 				953C3B50275E18F500A3FAE2 /* PhotoDetailsView.swift in Sources */,
@@ -792,6 +796,7 @@
 				INFOPLIST_FILE = RedditPhotoGallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -820,6 +825,7 @@
 				INFOPLIST_FILE = RedditPhotoGallery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

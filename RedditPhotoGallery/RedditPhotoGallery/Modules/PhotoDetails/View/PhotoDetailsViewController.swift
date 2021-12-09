@@ -33,7 +33,19 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
+        self.presenter?.refreshPhotoDetails()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // lock the device orientation to the current one
+        OrientationLockUtility.lockOrientation(UIDevice.current.orientation.isLandscape ? .landscape : .portrait)
+        // hide old data on view
+        for photoDetailsView in self.photoDetailsViews ?? [] {
+            photoDetailsView.imageView.isHidden = true
+            photoDetailsView.titleLabel.isHidden = true
+            photoDetailsView.authorLabel.isHidden = true
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,20 +53,9 @@ class PhotoDetailsViewController: UIViewController, UIScrollViewDelegate {
         self.presenter?.refreshPhotoDetails()
     }
     
-    @objc func orientationChanged() {
-        let newDeviceOrientation = UIDevice.current.orientation
-        // refresh only if orientation is really changed
-        if ((self.lastDeviceOrientation == nil) ||
-            newDeviceOrientation.isLandscape && (self.lastDeviceOrientation?.isPortrait ?? false)) ||
-            (newDeviceOrientation.isPortrait && (self.lastDeviceOrientation?.isLandscape ?? false)) {
-            self.presenter?.refreshPhotoDetails()
-        }
-        self.lastDeviceOrientation = newDeviceOrientation
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        OrientationLockUtility.lockOrientation(.all)
     }
     
     //MARK: Public members
