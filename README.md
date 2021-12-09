@@ -24,14 +24,14 @@ Pinch to zoom the image to find all batman's secrets!
 
 ## Some details about development
 
-To build this app i choose to use a VIPER based architecture.
-In the code you will find PhotoGallery and PhotoDetails VIPER modules wrapped inside a UINavigationController that enables push and pop transition on user interaction.
-PhotoDetails's view in particular will be built dynamically based on the number of images found during search.
-To enable offline usages i decided to store search and photo data in UserDefaults.
-I tested presenters and interactors behaviours using XCUnit testing.
-Some of the UI behaviours has been tested using XCUI testing.
+To build this app i choose to use a VIPER based architecture.<br/>
+In the code you will find PhotoGallery and PhotoDetails VIPER modules wrapped inside a UINavigationController that enables push and pop transition on user interaction.<br/>
+PhotoDetails's view in particular will be built dynamically based on the number of images found during search.<br/>
+To enable offline usages i decided to store search and photo data in UserDefaults.<br/>
+I tested presenters and interactors behaviours using XCUnit testing.<br/>
+Some of the UI behaviours has been tested using XCUI testing.<br/>
 
 ## Next steps
 
-- Enable user to set favourite images: this can be done by adding a favourite button on PhotoDetails and storing the [ImageId, isFavourite] structure on UserDefaults. Further a favourite section can be made by adding a bottom menu on PhotoGallery with two buttons and change its behaviour based on the selected menu item.
-- Introduce further UI testing: introduce further UI tests for photoDetails user interactions like zoom and scroll.
+- <b>Enable user to set favourite images:</b> <br/>this can be done by adding a favourite button on PhotoDetails and storing the [ImageId, isFavourite] structure on UserDefaults. <br/>Further a favourite section can be made by adding a bottom menu on PhotoGallery with two buttons and change its behaviour based on the selected menu item.
+- <b>Introduce further UI testing:</b> <br/>test more photoDetails user interactions like zoom and scroll.
