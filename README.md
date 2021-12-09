@@ -9,16 +9,17 @@ On this app you can:
 Tap on search bar and start typing, something will happen!
 
 ## See an image in detail
-<img src="https://user-images.githubusercontent.com/12614001/145386843-ad48c521-d4bf-492c-8a81-4a5f23a7e284.png" alt="image detail portrait" width="300"/>
+<img src="https://user-images.githubusercontent.com/12614001/145486535-7879ddec-5a62-4a2a-8527-73ce2d95da74.png" alt="image detail portrait" width="300"/>
 
 Select an image from the list to show who made it and the image title.
 
-<img src="https://user-images.githubusercontent.com/12614001/145389879-ee7fb300-65d7-42f7-987e-7332fd24f3c0.png" alt="image detail portrait" width="300"/>
+<img src="https://user-images.githubusercontent.com/12614001/145486798-7c153121-c224-42fe-8513-dc1f20f9584a.png" alt="image detail portrait" width="300"/>
 
 Swipe to see next or previous image.
 
 ## Zoom
-<img src="https://user-images.githubusercontent.com/12614001/145387091-c24a2a6e-d4b4-4e93-b5e5-473f633c5196.png" alt="image detail zoom" width="300"/>
+<img src="https://user-images.githubusercontent.com/12614001/145486840-7c287fff-fde3-48d2-980a-e8c14175c28a.png" alt="image detail zoom" width="300"/>
+
 
 Pinch to zoom the image to find all batman's secrets!
 
